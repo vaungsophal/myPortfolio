@@ -160,6 +160,22 @@ export default function FullWidthTabs() {
         "High-Accuracy Detection Workflows",
       ],
     },
+    {
+      id: 4,
+      Img: "https://github.com/sophal-vaung/me/blob/main/sw.png?raw=true",
+      Title: "ScreenWise - AI HR Screening",
+      Description: "Led ScreenWise to a Top 3 award in the ACTSmart Incubation Program, winning USD 4,000 and a tech immersion trip to Singapore, among 20 competing startups. Developed and deployed the AI-powered HR screening platform.",
+      Link: "https://github.com/vaungsophal",
+      Github: "Private",
+      TechStack: ["Vue.js", "Python", "Node.js", "AI"],
+      Features: [
+        "Top 3 Award in ACTSmart Incubation Program ($4,000 Prize)",
+        "Tech Immersion Trip to Singapore Participant",
+        "AI-Powered HR Screening Platform Development",
+        "Optimized AI Algorithms for Efficiency",
+        "Business Data Analysis for Performance Insights",
+      ],
+    },
   ];
   // Static data for certificates
   const certificates = [
