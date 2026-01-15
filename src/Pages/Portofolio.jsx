@@ -162,10 +162,10 @@ export default function FullWidthTabs() {
     },
     {
       id: 4,
-      Img: "https://github.com/sophal-vaung/me/blob/main/sw.png?raw=true",
+      Img: "/works/screenwise0.png",
       Title: "ScreenWise - AI HR Screening",
       Description: "Led ScreenWise to a Top 3 award in the ACTSmart Incubation Program, winning USD 4,000 and a tech immersion trip to Singapore, among 20 competing startups. Developed and deployed the AI-powered HR screening platform.",
-      Link: "https://github.com/vaungsophal",
+      Link: "https://www.screenwisekh.com",
       Github: "Private",
       TechStack: ["Vue.js", "Python", "Node.js", "AI"],
       Features: [
