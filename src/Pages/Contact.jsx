@@ -109,10 +109,10 @@ const ContactPage = () => {
       </div>
 
       <div
-        className="h-auto py-10 flex items-center justify-center px-[5%] md:px-0"
+        className="h-auto py-10 flex items-center justify-center px-[5%] sm:px-[10%] lg:px-[10%]"
         id="Contact"
       >
-        <div className="container px-[1%] grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12">
+        <div className="container mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12">
           <div
             data-aos="fade-right"
             data-aos-duration="1200"
@@ -130,7 +130,7 @@ const ContactPage = () => {
               <Share2 className="w-10 h-10 text-[#6366f1] opacity-50" />
             </div>
 
-            <form 
+            <form
               action="https://formsubmit.co/sophalvaung@gmail.com"
               method="POST"
               onSubmit={handleSubmit}

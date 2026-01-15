@@ -32,9 +32,8 @@ const ToggleButton = ({ onClick, isShowingMore }) => (
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className={`transition-transform duration-300 ${
-          isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"
-        }`}
+        className={`transition-transform duration-300 ${isShowingMore ? "group-hover:-translate-y-0.5" : "group-hover:translate-y-0.5"
+          }`}
       >
         <polyline points={isShowingMore ? "18 15 12 9 6 15" : "6 9 12 15 18 9"}></polyline>
       </svg>
@@ -112,13 +111,13 @@ export default function FullWidthTabs() {
 
   // Static data for projects
   const projects = [
-    { 
+    {
       id: 1,
       Img: "https://s3-alpha.figma.com/hub/file/5133548925/6dcf8298-fd72-4aba-a023-a5298b36b990-cover.png",
       Title: "Task Manager Application",
       Description: "The Task Manager Application is a simple yet powerful tool designed to help users organize and manage tasks effectively. This application provides a user-friendly platform to create, assign, and track tasks, ensuring that users stay on top of their daily responsibilities.",
       Link: "https://task-manager-pol.vercel.app/",
-      TechStack: ["Tailwind", "CSS", "TypeScript", "React","Next.js", "Firebase"],
+      TechStack: ["Tailwind", "CSS", "TypeScript", "React", "Next.js", "Firebase"],
       Features: [
         "Task creation and management",
         "Task prioritization and deadlines",
@@ -154,23 +153,23 @@ export default function FullWidthTabs() {
       Link: "https://vaungsophal-ddos-detection.streamlit.app/",
       TechStack: ["Python", "Skitlearn", "Tensorflow", "Streamlit"],
       Features: [
-          "Real-Time Network Traffic Analysis",
-          "Machine Learning-Based Anomaly Detection",
-          "Automated DDoS Attack Classification",
-          "User-Friendly Streamlit Dashboard",
-          "High-Accuracy Detection Workflows",
+        "Real-Time Network Traffic Analysis",
+        "Machine Learning-Based Anomaly Detection",
+        "Automated DDoS Attack Classification",
+        "User-Friendly Streamlit Dashboard",
+        "High-Accuracy Detection Workflows",
       ],
     },
   ];
   // Static data for certificates
   const certificates = [
     // web dev certificates
-    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true"},
+    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true" },
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001%20(1).jpg?raw=true" },
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-frontend_page-0001.jpg?raw=true" },
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001.jpg?raw=true" },
     // programming certificates
-    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-py.png?raw=true"},
+    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-py.png?raw=true" },
     { Img: "https://udemy-certificate.s3.amazonaws.com/image/UC-1a738d82-949a-45bf-941e-0d44e7ae55ac.jpg?v=1726725571000" },
   ];
 
@@ -199,7 +198,7 @@ export default function FullWidthTabs() {
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
   return (
-    <div className="md:px-[10%] px-[5%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
+    <div className="px-[5%] sm:px-[10%] lg:px-[10%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Portofolio">
       <div className="text-center pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2 className="inline-block text-3xl md:text-5xl font-bold text-center mx-auto text-transparent bg-clip-text bg-gradient-to-r from-[#6366f1] to-[#a855f7]">
           Portfolio Showcase
