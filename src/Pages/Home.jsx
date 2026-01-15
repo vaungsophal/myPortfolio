@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, memo } from "react"
 import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -138,8 +139,23 @@ const Home = () => {
       isTyping ? TYPING_SPEED : ERASING_SPEED
     );
     return () => clearTimeout(timeout);
-  }, [handleTyping]);
+  }, [handleTyping, isTyping]);
 
+  // Lottie configuration
+  const lottieOptions = {
+    src: "/Coding.json",
+    loop: true,
+    autoplay: true,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+      progressiveLoad: true,
+    },
+    style: { width: "100%", height: "100%" },
+    className: `w-full h-full transition-all duration-500 ${isHovering
+      ? "scale-[180%] sm:scale-[160%] md:scale-[150%] lg:scale-[145%] rotate-2"
+      : "scale-[175%] sm:scale-[155%] md:scale-[145%] lg:scale-[140%]"
+      }`
+  };
 
   return (
     <div className="min-h-screen bg-[#030014] overflow-hidden" id="Home">
@@ -204,11 +220,7 @@ const Home = () => {
 
                 <div className={`relative z-10 w-full opacity-90 transform transition-all duration-500 ${isHovering ? "scale-105" : "scale-100"
                   }`}>
-                  <img
-                    src="/Coding.gif"
-                    alt="Coding Animation"
-                    className="w-full h-auto rounded-3xl shadow-2xl"
-                  />
+                  <DotLottieReact {...lottieOptions} />
                 </div>
 
                 <div className={`absolute inset-0 pointer-events-none transition-all duration-700 ${isHovering ? "opacity-50" : "opacity-20"
