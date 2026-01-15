@@ -75,7 +75,7 @@ function a11yProps(index) {
 }
 
 const techStacks = [
-  { icon: "tech/py.png", language: "Python" },
+  { icon: "tech/python.png", language: "Python" },
   { icon: "https://favtutor.com/resources/images/uploads/Java_logo.png", language: "Java" },
   { icon: "tech/html.svg", language: "HTML" },
   { icon: "tech/css.svg", language: "CSS" },
@@ -188,9 +188,10 @@ export default function FullWidthTabs() {
   ];
   // Static data for certificates
   const certificates = [
+    { Img: "/certificates/ExchangeProgram_RAS2025_SG.jpg" },
     // AWS Certificates
-    { Img: "/certificates/AWS_Cloud_Architecting.pdf" },
-    { Img: "/certificates/AWS_Cloud_Foundations.pdf" },
+    { Img: "/certificates/AWS_Cloud_Architecting.jpg" },
+    { Img: "/certificates/AWS_Cloud_Foundations.jpg" },
     // web dev certificates
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true" },
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001%20(1).jpg?raw=true" },
