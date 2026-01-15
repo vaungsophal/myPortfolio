@@ -75,23 +75,62 @@ function a11yProps(index) {
 }
 
 const techStacks = [
-  { icon: "tech/python.png", language: "Python" },
-  { icon: "https://favtutor.com/resources/images/uploads/Java_logo.png", language: "Java" },
-  { icon: "tech/html.svg", language: "HTML" },
-  { icon: "tech/css.svg", language: "CSS" },
-  { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-  { icon: "tech/javascript.svg", language: "JavaScript" },
-  { icon: "tech/typescript.svg", language: "TypeScript" },
-  { icon: "tech/reactjs.svg", language: "ReactJS" },
-  { icon: "tech/vite.svg", language: "Vite" },
-  { icon: "tech/nextjss.png", language: "Next JS" },
-  { icon: "tech/nodejs.svg", language: "Node JS" },
-  { icon: "tech/bootstrap.svg", language: "Bootstrap" },
-  { icon: "tech/firebase.svg", language: "Firebase" },
-  { icon: "tech/vercel.svg", language: "Vercel" },
-  { icon: "tech/SweetAlert.svg", language: "SweetAlert2" },
-  { icon: "tech/MUI.svg", language: "Material UI" },
-  { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+  {
+    name: "Frontend Ecosystem",
+    items: [
+      { icon: "tech/html.svg", language: "HTML" },
+      { icon: "tech/css.svg", language: "CSS" },
+      { icon: "tech/javascript.svg", language: "JavaScript" },
+      { icon: "tech/typescript.svg", language: "TypeScript" },
+      { icon: "tech/reactjs.svg", language: "ReactJS" },
+      { icon: "tech/nextjss.png", language: "Next JS" },
+      { icon: "tech/vite.svg", language: "Vite" },
+      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+      { icon: "tech/bootstrap.svg", language: "Bootstrap" },
+      { icon: "tech/MUI.svg", language: "Material UI" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", language: "Vue.js" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nuxtjs/nuxtjs-original.svg", language: "Nuxt.js" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg", language: "Angular" },
+      { icon: "tech/SweetAlert.svg", language: "SweetAlert2" },
+    ]
+  },
+  {
+    name: "Backend & Services",
+    items: [
+      { icon: "tech/nodejs.svg", language: "Node JS" },
+      { icon: "tech/python.png", language: "Python" },
+      { icon: "https://favtutor.com/resources/images/uploads/Java_logo.png", language: "Java" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", language: "FastAPI" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", language: "PostgreSQL" },
+      { icon: "tech/firebase.svg", language: "Firebase" },
+    ]
+  },
+  {
+    name: "Cloud, DevOps & Tools",
+    items: [
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", language: "AWS" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/digitalocean/digitalocean-original.svg", language: "DigitalOcean" },
+      { icon: "tech/vercel.svg", language: "Vercel" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg", language: "Linux" },
+      { icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg", language: "Postman" },
+      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+    ]
+  },
+  {
+    name: "Data Science & Analytics",
+    items: [
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg", language: "Pandas" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg", language: "NumPy" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg", language: "OpenCV" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg", language: "Matplotlib" },
+      { icon: "https://seaborn.pydata.org/_images/logo-mark-lightbg.svg", language: "Seaborn" },
+      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg", language: "Jupyter" },
+      { icon: "https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg", language: "Power BI" },
+      { icon: "tech/Excel.png", language: "Excel" },
+    ]
+  }
 ];
 
 export default function FullWidthTabs() {
@@ -321,11 +360,37 @@ export default function FullWidthTabs() {
 
           {/* Tech Stack Tab */}
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
-                {techStacks.map((stack, index) => (
-                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
-                    <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+            <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
+              <div className="grid grid-cols-1 gap-10 mt-2 w-full">
+                {techStacks.map((group, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-col gap-4"
+                  >
+                    <div
+                      className="flex items-center gap-4 px-[2%]"
+                      data-aos="fade-right"
+                      data-aos-duration="1000"
+                    >
+                      <div className="w-1 h-8 bg-gradient-to-b from-[#6366f1] to-[#a855f7] rounded-full"></div>
+                      <h3 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-100 to-gray-400">
+                        {group.name}
+                      </h3>
+                      <div className="h-[1px] flex-grow bg-gradient-to-r from-gray-700/50 to-transparent"></div>
+                    </div>
+
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 px-[2%]">
+                      {group.items.map((stack, idx) => (
+                        <div
+                          key={idx}
+                          data-aos="fade-up"
+                          data-aos-duration="1000"
+                          data-aos-delay={idx * 50}
+                        >
+                          <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 ))}
               </div>
