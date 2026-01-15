@@ -75,7 +75,7 @@ function a11yProps(index) {
 }
 
 const techStacks = [
-  { icon: "tech/py.svg", language: "Python" },
+  { icon: "tech/py.png", language: "Python" },
   { icon: "https://favtutor.com/resources/images/uploads/Java_logo.png", language: "Java" },
   { icon: "tech/html.svg", language: "HTML" },
   { icon: "tech/css.svg", language: "CSS" },
@@ -109,7 +109,7 @@ export default function FullWidthTabs() {
       Img: "/works/AUPPNetworkingApp.png",
       Title: "AUPP Alumni Networking App",
       Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system, SSR for SEO optimization, and a full CI/CD pipeline. Designed to connect students and alumni through a secure, scalable architecture.",
-      Link: "https://github.com/vaungsophal",
+      Link: "https://connectable.aurrasms.com/",
       TechStack: ["Next.js", "Node.js", "Tailwind", "PostgreSQL", "Docker", "AWS"],
       Features: [
         "Role-Based Access Control (RBAC) System",
@@ -136,13 +136,13 @@ export default function FullWidthTabs() {
         "Business Data Analysis for Performance Insights",
       ],
     },
-    { 
+    {
       id: 3,
       Img: "https://s3-alpha.figma.com/hub/file/5133548925/6dcf8298-fd72-4aba-a023-a5298b36b990-cover.png",
       Title: "Task Manager Application",
       Description: "The Task Manager Application is a simple yet powerful tool designed to help users organize and manage tasks effectively. This application provides a user-friendly platform to create, assign, and track tasks, ensuring that users stay on top of their daily responsibilities.",
       Link: "https://task-manager-pol.vercel.app/",
-      TechStack: ["Tailwind", "CSS", "TypeScript", "React","Next.js", "Firebase"],
+      TechStack: ["Tailwind", "CSS", "TypeScript", "React", "Next.js", "Firebase"],
       Features: [
         "Task creation and management",
         "Task prioritization and deadlines",
@@ -178,16 +178,19 @@ export default function FullWidthTabs() {
       Link: "https://vaungsophal-ddos-detection.streamlit.app/",
       TechStack: ["Python", "Skitlearn", "Tensorflow", "Streamlit"],
       Features: [
-          "Real-Time Network Traffic Analysis",
-          "Machine Learning-Based Anomaly Detection",
-          "Automated DDoS Attack Classification",
-          "User-Friendly Streamlit Dashboard",
-          "High-Accuracy Detection Workflows",
+        "Real-Time Network Traffic Analysis",
+        "Machine Learning-Based Anomaly Detection",
+        "Automated DDoS Attack Classification",
+        "User-Friendly Streamlit Dashboard",
+        "High-Accuracy Detection Workflows",
       ],
     },
   ];
   // Static data for certificates
   const certificates = [
+    // AWS Certificates
+    { Img: "/certificates/AWS_Cloud_Architecting.pdf" },
+    { Img: "/certificates/AWS_Cloud_Foundations.pdf" },
     // web dev certificates
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true" },
     { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001%20(1).jpg?raw=true" },

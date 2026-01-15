@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { Modal, IconButton, Box, Fade, Backdrop, Zoom, Typography } from "@mui/material"
 import CloseIcon from "@mui/icons-material/Close"
 import FullscreenIcon from "@mui/icons-material/Fullscreen"
+import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf"
 
 const Certificate = ({ ImgSertif }) => {
 	const [open, setOpen] = useState(false)
@@ -55,20 +56,44 @@ const Certificate = ({ ImgSertif }) => {
 							zIndex: 1,
 						},
 					}}>
-					<img
-						className="certificate-image"
-						src={ImgSertif}
-						alt="Certificate"
-						style={{
-							width: "100%",
-							height: "auto",
-							display: "block",
-							objectFit: "cover",
-							filter: "contrast(1.10) brightness(0.9) saturate(1.1)",
-							transition: "filter 0.3s ease",
-						}}
-						onClick={handleOpen}
-					/>
+					{ImgSertif.endsWith('.pdf') ? (
+						<Box
+							className="certificate-image"
+							onClick={handleOpen}
+							sx={{
+								width: "100%",
+								height: "220px",
+								display: "flex",
+								flexDirection: "column",
+								alignItems: "center",
+								justifyContent: "center",
+								bgcolor: "rgba(255, 255, 255, 0.05)",
+								cursor: "pointer",
+								borderRadius: 1,
+								border: "1px solid rgba(255, 255, 255, 0.1)",
+							}}
+						>
+							<PictureAsPdfIcon sx={{ fontSize: 60, color: "#e53e3e", mb: 2 }} />
+							<Typography variant="body2" sx={{ color: "rgba(255, 255, 255, 0.8)", fontWeight: 500 }}>
+								View PDF
+							</Typography>
+						</Box>
+					) : (
+						<img
+							className="certificate-image"
+							src={ImgSertif}
+							alt="Certificate"
+							style={{
+								width: "100%",
+								height: "auto",
+								display: "block",
+								objectFit: "cover",
+								filter: "contrast(1.10) brightness(0.9) saturate(1.1)",
+								transition: "filter 0.3s ease",
+							}}
+							onClick={handleOpen}
+						/>
+					)}
 				</Box>
 
 				{/* Hover Overlay */}
@@ -176,18 +201,32 @@ const Certificate = ({ ImgSertif }) => {
 						<CloseIcon sx={{ fontSize: 24 }} />
 					</IconButton>
 
-					{/* Modal Image */}
-					<img
-						src={ImgSertif}
-						alt="Certificate Full View"
-						style={{
-							display: "block",
-							maxWidth: "100%",
-							maxHeight: "90vh",
-							margin: "0 auto",
-							objectFit: "contain",
-						}}
-					/>
+					{/* Modal Content */}
+					{ImgSertif.endsWith('.pdf') ? (
+						<iframe
+							src={ImgSertif}
+							title="Certificate PDF"
+							style={{
+								width: "80vw",
+								height: "80vh",
+								border: "none",
+								backgroundColor: "white",
+								borderRadius: "8px",
+							}}
+						/>
+					) : (
+						<img
+							src={ImgSertif}
+							alt="Certificate Full View"
+							style={{
+								display: "block",
+								maxWidth: "100%",
+								maxHeight: "90vh",
+								margin: "0 auto",
+								objectFit: "contain",
+							}}
+						/>
+					)}
 				</Box>
 			</Modal>
 		</Box>
