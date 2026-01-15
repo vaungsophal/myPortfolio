@@ -250,7 +250,7 @@ export default function FullWidthTabs() {
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           {/* Projects Tab */}
           <TabPanel value={value} index={0} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
                 {displayedProjects.map((project, index) => (
                   <div key={project.id} data-aos="fade-up" data-aos-duration="1000">
@@ -274,7 +274,7 @@ export default function FullWidthTabs() {
 
           {/* Certificates Tab */}
           <TabPanel value={value} index={1} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden">
+            <div className="mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
                 {displayedCertificates.map((certificate, index) => (
                   <div key={index} data-aos="fade-up" data-aos-duration="1000">
@@ -292,7 +292,7 @@ export default function FullWidthTabs() {
 
           {/* Tech Stack Tab */}
           <TabPanel value={value} index={2} dir={theme.direction}>
-            <div className="container mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
+            <div className="mx-auto flex justify-center items-center overflow-hidden pb-[5%]">
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 lg:gap-8 gap-5">
                 {techStacks.map((stack, index) => (
                   <div key={index} data-aos="fade-up" data-aos-duration="1000">
