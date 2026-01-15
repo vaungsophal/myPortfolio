@@ -169,6 +169,22 @@ export default function FullWidthTabs() {
         "Business Data Analysis for Performance Insights",
       ],
     },
+    {
+      id: 5,
+      Img: "/works/AUPPNetworkingApp.png",
+      Title: "AUPP Alumni Networking App",
+      Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system, SSR for SEO optimization, and a full CI/CD pipeline. Designed to connect students and alumni through a secure, scalable architecture.",
+      Link: "https://github.com/vaungsophal",
+      TechStack: ["Next.js", "Node.js", "Tailwind", "PostgreSQL", "Docker", "AWS"],
+      Features: [
+        "Role-Based Access Control (RBAC) System",
+        "Server-Side Rendering (SSR) for SEO Optimization",
+        "RESTful API Architecture with OpenAPI 3.0",
+        "CI/CD Pipeline with GitHub Actions & Docker",
+        "Secure Authentication (JWT & API Keys)",
+        "Mobile-First Responsive Design",
+      ],
+    },
   ];
   // Static data for certificates
   const certificates = [
