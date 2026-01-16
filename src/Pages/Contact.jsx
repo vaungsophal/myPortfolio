@@ -79,8 +79,8 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="px-[5%] sm:px-[10%] lg:px-[10%] overflow-hidden" id="Contact">
-      <div className="text-center lg:mt-[5%] mt-10 mb-2">
+    <div className="px-[5%] sm:px-[10%] lg:px-[10%] w-full sm:mt-0 mt-[3rem] bg-[#030014] overflow-hidden" id="Contact">
+      <div className="text-center pb-10 sm:pb-10" data-aos="fade-up" data-aos-duration="1000">
         <h2
           data-aos="fade-down"
           data-aos-duration="1000"
@@ -109,9 +109,9 @@ const ContactPage = () => {
       </div>
 
       <div
-        className="h-auto py-10 flex items-center justify-center"
+        className="h-auto flex items-center justify-center w-full"
       >
-        <div className="mx-auto grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-[45%_55%] 2xl:grid-cols-[35%_65%] gap-12">
+        <div className="mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12">
           <div
             data-aos="fade-right"
             data-aos-duration="1200"
