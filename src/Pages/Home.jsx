@@ -77,7 +77,7 @@ const SocialLink = memo(({ icon: Icon, link }) => (
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Information & Communication Technology Student", "Tech Enthusiast"];
+const WORDS = ["Junior Software Developer", "Entrepreneur"];
 const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind"];
 const SOCIAL_LINKS = [
   { icon: Github, link: "https://github.com/vaungsophal" },
@@ -152,8 +152,8 @@ const Home = () => {
     },
     style: { width: "100%", height: "100%" },
     className: `w-full h-full transition-all duration-500 ${isHovering
-        ? "scale-[200%] sm:scale-[180%] md:scale-[170%] lg:scale-[160%] rotate-2"
-        : "scale-[195%] sm:scale-[175%] md:scale-[165%] lg:scale-[155%]"
+      ? "scale-[200%] sm:scale-[180%] md:scale-[170%] lg:scale-[160%] rotate-2"
+      : "scale-[195%] sm:scale-[175%] md:scale-[165%] lg:scale-[155%]"
       }`
   };
 

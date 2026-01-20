@@ -14,23 +14,6 @@ const Education = () => {
     const educationData = [
         {
             id: 1,
-            institution: "National University of Singapore",
-            location: "Singapore",
-            date: "2025",
-            shortDate: "July 4-5",
-            degree: "Exchange Program on Ecosystem & Sustainability",
-            description: "Intensive focus on ecosystem health, climate resilience, and sustainable development through advanced workshops.",
-            logo: "/educations/NUS.png",
-            color: "from-[#3b82f6] to-[#2dd4bf]",
-            tag: "Exchange",
-            details: [
-                "Ecosystem Health",
-                "Climate Resilience",
-                "Sustainable Development"
-            ]
-        },
-        {
-            id: 2,
             institution: "American University of Phnom Penh",
             location: "Phnom Penh, Cambodia",
             date: "2023 — 2027",
@@ -44,6 +27,23 @@ const Education = () => {
                 "Software Engineering",
                 "Digital Innovation",
                 "GPA: 3.69/4.00"
+            ]
+        },
+        {
+            id: 2,
+            institution: "National University of Singapore",
+            location: "Singapore",
+            date: "2025",
+            shortDate: "July 4-5",
+            degree: "Exchange Program on Ecosystem & Sustainability",
+            description: "Intensive focus on ecosystem health, climate resilience, and sustainable development through advanced workshops.",
+            logo: "/educations/NUS.png",
+            color: "from-[#3b82f6] to-[#2dd4bf]",
+            tag: "Exchange",
+            details: [
+                "Ecosystem Health",
+                "Climate Resilience",
+                "Sustainable Development"
             ]
         }
     ];
@@ -83,7 +83,7 @@ const Education = () => {
                             data-aos-delay={index * 200}
                         >
                             {/* Card Body */}
-                            <div className="relative h-full bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 transition-all duration-700 hover:border-white/20 hover:bg-[#080808]/60 overflow-hidden">
+                            <div className="relative h-full bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 transition-all duration-700 hover:border-white/20 hover:bg-[#080808]/60 overflow-hidden">
 
                                 {/* Background Decorative Logo (Large, faded) */}
                                 <div className="absolute -right-12 -bottom-12 w-64 h-64 opacity-[0.03] grayscale transition-all duration-700 group-hover:opacity-[0.07] group-hover:scale-110 pointer-events-none">
@@ -104,12 +104,11 @@ const Education = () => {
 
                                     {/* Institution & Logo Split */}
                                     <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                                        <div className="relative w-20 h-20 flex-shrink-0">
-                                            <div className="absolute inset-0 bg-white/5 rounded-2xl blur-sm"></div>
+                                        <div className={`relative ${edu.id === 2 ? 'w-32' : 'w-20'} h-20 flex-shrink-0`}>
                                             <img
                                                 src={edu.logo}
                                                 alt={edu.institution}
-                                                className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]"
+                                                className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-110"
                                             />
                                         </div>
                                         <div>

@@ -214,9 +214,8 @@ const AboutPage = () => {
               data-aos="fade-right"
               data-aos-duration="1500"
             >
-              A student of Information and Communication Technology at American University of Phnom Penh, who is interested in Full Stack development.
+              I am a Junior Software Developer and Entrepreneur studying Information and Communication Technology at American University of Phnom Penh.
               I focus on creating engaging digital experiences and always strive to provide the best solutions in every project.
-
             </p>
 
             <div className="flex flex-col lg:flex-row items-center lg:items-start gap-4 lg:gap-4 lg:px-0 w-full">
