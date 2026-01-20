@@ -86,7 +86,7 @@ const Education = () => {
                             <div className="relative h-full bg-[#050505]/40 backdrop-blur-2xl border border-white/10 rounded-3xl p-8 md:p-12 transition-all duration-700 hover:border-white/20 hover:bg-[#080808]/60 overflow-hidden">
 
                                 {/* Background Decorative Logo (Large, faded) */}
-                                <div className="absolute -right-12 -bottom-12 w-64 h-64 opacity-[0.03] grayscale transition-all duration-700 group-hover:opacity-[0.07] group-hover:scale-110 pointer-events-none">
+                                <div className={`absolute -right-12 -bottom-12 ${edu.id === 2 ? 'w-96 h-96' : 'w-64 h-64'} opacity-[0.03] grayscale transition-all duration-700 group-hover:opacity-[0.07] group-hover:scale-110 pointer-events-none`}>
                                     <img src={edu.logo} alt="" className="w-full h-full object-contain" />
                                 </div>
 
@@ -104,7 +104,7 @@ const Education = () => {
 
                                     {/* Institution & Logo Split */}
                                     <div className="flex flex-col md:flex-row gap-8 items-start md:items-center">
-                                        <div className={`relative ${edu.id === 2 ? 'w-32' : 'w-20'} h-20 flex-shrink-0`}>
+                                        <div className={`relative ${edu.id === 2 ? 'w-40 h-24' : 'w-20 h-20'} flex-shrink-0`}>
                                             <img
                                                 src={edu.logo}
                                                 alt={edu.institution}
