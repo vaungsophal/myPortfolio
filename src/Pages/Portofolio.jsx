@@ -321,7 +321,11 @@ export default function FullWidthTabs() {
             <div className="mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-5">
                 {displayedProjects.map((project, index) => (
-                  <div key={project.id} data-aos="fade-up" data-aos-duration="1000">
+                  <div
+                    key={project.id}
+                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
+                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                  >
                     <CardProject
                       Img={project.Img}
                       Title={project.Title}
@@ -345,7 +349,11 @@ export default function FullWidthTabs() {
             <div className="mx-auto flex justify-center items-center overflow-hidden">
               <div className="grid grid-cols-1 md:grid-cols-3 md:gap-5 gap-4">
                 {displayedCertificates.map((certificate, index) => (
-                  <div key={index} data-aos="fade-up" data-aos-duration="1000">
+                  <div
+                    key={index}
+                    data-aos={index % 3 === 0 ? "fade-up-right" : index % 3 === 1 ? "fade-up" : "fade-up-left"}
+                    data-aos-duration={index % 3 === 0 ? "1000" : index % 3 === 1 ? "1200" : "1000"}
+                  >
                     <Certificate ImgSertif={certificate.Img} />
                   </div>
                 ))}
@@ -383,9 +391,9 @@ export default function FullWidthTabs() {
                       {group.items.map((stack, idx) => (
                         <div
                           key={idx}
-                          data-aos="fade-up"
+                          data-aos="zoom-in"
                           data-aos-duration="1000"
-                          data-aos-delay={idx * 50}
+                          data-aos-delay={idx * 200}
                         >
                           <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
                         </div>

@@ -134,7 +134,7 @@ const AboutPage = () => {
   useEffect(() => {
     const initAOS = () => {
       AOS.init({
-        once: false,
+        once: true,
       });
     };
 

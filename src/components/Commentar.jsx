@@ -185,7 +185,7 @@ const Komentar = () => {
 
     useEffect(() => {
         AOS.init({
-            once: false,
+            once: true,
             duration: 1000,
         });
     }, []);
