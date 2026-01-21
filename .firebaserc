@@ -4,6 +4,14 @@
     "commentar-dev": "commentar-dev",
     " ": "sophalvaung-dev"
   },
-  "targets": {},
+  "targets": {
+    "sophalvaung-dev": {
+      "hosting": {
+        "production-site": [
+          "sophalvaung"
+        ]
+      }
+    }
+  },
   "etags": {}
 }

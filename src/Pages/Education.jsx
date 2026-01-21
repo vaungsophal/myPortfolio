@@ -59,9 +59,9 @@ const Education = () => {
                 <div className="max-w-3xl mb-16">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-6" data-aos="fade-right">
                         <Sparkles className="w-4 h-4 text-yellow-400" />
-                        <span className="text-xs font-medium text-gray-300 uppercase tracking-wider">Learning Journey</span>
+                        <span className="text-3xs font-medium text-gray-300 uppercase tracking-wider">Learning Journey</span>
                     </div>
-                    <h2 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight" data-aos="fade-right" data-aos-delay="100">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight" data-aos="fade-right" data-aos-delay="100">
                         <span className="text-white">Academic</span>
                         <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
