@@ -61,7 +61,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
                   variants={letterVariants}
                   initial="hidden"
                   animate="visible"
-                  className="text-white text-xl sm:text-2xl font-black tracking-[0.5em] sm:tracking-[0.8em] inline-block last:mr-0 select-none font-['Poppins']"
+                  className="text-gray-400 text-sm sm:text-xl font-normal tracking-[0.5em] sm:tracking-[0.8em] inline-block last:mr-0 select-none font-['Poppins'] text-shadow-md"
                   style={{
                     marginRight: index === loadingText.length - 1 ? '0' : '0.8em',
                   }}
@@ -69,19 +69,6 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
                   {char}
                 </motion.span>
               ))}
-            </div>
-
-            <div className="mt-10 w-40 sm:w-56 h-[1px] bg-white/5 relative overflow-hidden">
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-accent to-transparent"
-                initial={{ x: "-100%" }}
-                animate={{ x: "100%" }}
-                transition={{
-                  duration: 1.2,
-                  repeat: Infinity,
-                  ease: "linear",
-                }}
-              />
             </div>
           </div>
         </motion.div>

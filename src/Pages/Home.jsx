@@ -66,7 +66,7 @@ const Home = () => {
 
         {/* Header Section - Inspired by the reference image */}
         <header className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-6 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
-          <div className="text-sm font-bold tracking-widest text-white/50" data-aos="fade-right">
+          <div className="text-sm font-semibold tracking-widest text-white/50" data-aos="fade-right">
             SOPHAL VAUNG
           </div>
 
@@ -76,7 +76,7 @@ const Home = () => {
             <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/sophal-vaung/" />
           </div>
 
-          <div className="text-sm font-medium tracking-wider text-white/50 hover:text-white transition-colors cursor-pointer" data-aos="fade-left">
+          <div className="text-sm font-normal tracking-wider text-gray-400 hover:text-white transition-colors cursor-pointer text-shadow-sm" data-aos="fade-left">
             2023451VAUNG@AUPP.EDU.KH
           </div>
         </header>
@@ -138,19 +138,19 @@ const Home = () => {
             {/* Right: Content Text */}
             <div className="w-full flex-1 space-y-8 text-center lg:text-left">
               <div className="space-y-3">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tighter" data-aos="fade-up" data-aos-delay="600">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tighter text-gray-300 text-shadow-md" data-aos="fade-up" data-aos-delay="600">
                   Hello, I'm <span className="text-accent">Sophal VAUNG</span>,
                   <br />
                   <span className="text-white/40">Software Developer</span>
                   <br />
-                  Based in <span className="text-white">Phnom Penh.</span>
+                  Based in <span className="text-gray-300">Phnom Penh.</span>
                 </h1>
               </div>
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-4xl md:text-5xl font-black text-accent animate-pulse-glow">4th Year</span>
-                  <span className="text-white/40 font-medium tracking-widest uppercase text-[10px] sm:text-xs">University Student</span>
+                  <span className="text-4xl md:text-5xl font-semibold text-accent animate-pulse-glow text-shadow-md">4th Year</span>
+                  <span className="text-gray-500 font-medium tracking-widest uppercase text-[10px] sm:text-xs text-shadow-sm">University Student</span>
                 </div>
 
                 <a
@@ -159,10 +159,10 @@ const Home = () => {
                   rel="noopener noreferrer"
                   className="group relative px-8 py-4 bg-white/5 border border-white/10 rounded-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-accent translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></div>
+                  <div className="absolute inset-0 bg-accent/70 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></div>
                   <div className="relative flex items-center gap-3">
                     <FileText className="w-5 h-5 text-white group-hover:text-background transition-colors" />
-                    <span className="text-sm font-bold tracking-widest group-hover:text-background transition-colors uppercase">DOWNLOAD CV</span>
+                    <span className="text-sm font-semibold tracking-widest group-hover:text-background transition-colors uppercase">DOWNLOAD CV</span>
                   </div>
                 </a>
               </div>
