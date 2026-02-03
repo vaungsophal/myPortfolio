@@ -69,7 +69,7 @@ const Home = () => {
           </div>
 
           <div className="text-sm font-medium tracking-wider text-white/50 hover:text-white transition-colors cursor-pointer" data-aos="fade-left">
-            sophalvaung@gmail.com
+            2023451VAUNG@AUPP.EDU.KH
           </div>
         </header>
 
@@ -94,8 +94,8 @@ const Home = () => {
 
                   {/* Card Footer Text */}
                   <div className="absolute bottom-8 left-8 z-20">
-                    <h3 className="text-xl font-bold tracking-tight text-white">Sophal VAUNG</h3>
-                    <p className="text-accent text-sm font-bold tracking-widest mt-1">AVAILABLE FOR WORK</p>
+                    <h3 className="text-xl font-bold tracking-tight text-white/40">@vaungsophal</h3>
+                    <p className="text-accent/40 text-sm font-bold tracking-widest mt-1">AVAILABLE FOR WORK</p>
                   </div>
 
                   {/* Floating Icon Badges */}
