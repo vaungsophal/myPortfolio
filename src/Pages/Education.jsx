@@ -97,7 +97,7 @@ const Education = () => {
                                             />
                                         </div>
                                         <div>
-                                            <h3 className="text-xl font-black text-white leading-tight uppercase tracking-tight">
+                                            <h3 className="text-lg md:text-xl font-black text-white leading-tight uppercase tracking-tight">
                                                 {edu.institution}
                                             </h3>
                                             <div className="flex items-center gap-2 text-grayText mt-1">

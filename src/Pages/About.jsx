@@ -121,7 +121,7 @@ const AboutPage = () => {
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <h2 className="text-2xl md:text-3xl font-black tracking-tighter" data-aos="fade-right">
+              <h2 className="text-xl md:text-2xl font-black tracking-tighter" data-aos="fade-right">
                 I'M A <span className="text-accent">SOFTWARE DEVELOPER</span>
                 <br />
                 & ENTREPRENEUR

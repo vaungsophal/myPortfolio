@@ -43,6 +43,8 @@ const TECH_STACK = [
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
+  const [currentTech, setCurrentTech] = useState(0);
+
   useEffect(() => {
     AOS.init({
       once: true,
@@ -50,6 +52,12 @@ const Home = () => {
       disable: "mobile",
     });
     setIsLoaded(true);
+
+    const interval = setInterval(() => {
+      setCurrentTech((prev) => (prev + 1) % TECH_STACK.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
@@ -87,31 +95,38 @@ const Home = () => {
 
                   {/* Using the user's photo from the assets if exists, otherwise a placeholder */}
                   <img
-                    src="/Photo.png"
+                    src="/hero.png"
                     alt="Sophal Vaung"
                     className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
                   />
 
                   {/* Card Footer Text */}
                   <div className="absolute bottom-8 left-8 z-20">
-                    <h3 className="text-xl font-bold tracking-tight text-white/40">@vaungsophal</h3>
-                    <p className="text-accent/40 text-sm font-bold tracking-widest mt-1">AVAILABLE FOR WORK</p>
+                    <h3 className="text-xl font-bold tracking-tight text-white/70">@vaungsophal</h3>
+                    <p className="text-accent/90 text-sm font-bold tracking-widest mt-1">Available for work</p>
+                    {/* <p className="text-green-500/70 text-sm font-sm tracking-widest mt-1">Let's collaborate and build something amazing together</p> */}
                   </div>
 
                   {/* Floating Icon Badges */}
-                  <div className="absolute top-6 left-6 z-20 p-2 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
-                    <img src="/figma-logo.png" alt="Figma" className="w-6 h-6 opacity-80" onError={(e) => e.target.style.display = 'none'} />
+                  <div className="absolute top-8 left-8 z-20 group/tech-badge cursor-pointer">
+                    <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover/tech-badge:opacity-100 transition-opacity duration-500"></div>
+                    <img
+                      key={currentTech}
+                      src={TECH_STACK[currentTech].icon}
+                      alt={TECH_STACK[currentTech].language}
+                      className="relative z-10 w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-2xl animate-fade-in-up transition-all duration-500 group-hover/tech-badge:scale-110 group-hover/tech-badge:brightness-125"
+                    />
                   </div>
 
                   <div className="absolute bottom-1/2 right-6 translate-y-1/2 z-20 flex flex-col gap-4">
-                    <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
-                      <Github className="w-5 h-5 text-white/80 group-hover:text-white" />
+                    <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 group">
+                      <Github className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />
                     </a>
-                    <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
-                      <Linkedin className="w-5 h-5 text-white/80 group-hover:text-[#0077b5]" />
+                    <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:border-[#0077b5]/20 transition-all duration-300 group">
+                      <Linkedin className="w-5 h-5 text-[#0077b5]/50 group-hover:text-[#0077b5] transition-colors" />
                     </a>
-                    <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
-                      <Send className="w-5 h-5 text-white/80 group-hover:text-[#229ED9]" />
+                    <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:border-[#229ED9]/20 transition-all duration-300 group">
+                      <Send className="w-5 h-5 text-[#229ED9]/50 group-hover:text-[#229ED9] transition-colors" />
                     </a>
                   </div>
                 </div>
@@ -156,7 +171,7 @@ const Home = () => {
               {/* Mobile Tech Stack Marquee */}
               <div className="w-full block lg:hidden overflow-hidden py-4" data-aos="fade-up" data-aos-delay="1000">
                 <div className="flex relative w-full max-w-lg mask-gradient-x">
-                  <div className="flex animate-marquee whitespace-nowrap gap-12">
+                  <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
                     {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
@@ -167,7 +182,7 @@ const Home = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12">
+                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
                     {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
@@ -184,7 +199,7 @@ const Home = () => {
               {/* Desktop Tech Stack Marquee */}
               <div className="w-full hidden lg:block overflow-hidden py-10" data-aos="fade-up" data-aos-delay="1000">
                 <div className="flex relative w-full max-w-lg mask-gradient-x">
-                  <div className="flex animate-marquee whitespace-nowrap gap-12">
+                  <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
                     {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
@@ -195,7 +210,7 @@ const Home = () => {
                       </div>
                     ))}
                   </div>
-                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12">
+                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
                     {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img

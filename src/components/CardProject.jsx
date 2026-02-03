@@ -25,7 +25,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
           </div>
 
           <div className="mt-6 space-y-4">
-            <h3 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+            <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
               {Title}
             </h3>
 
