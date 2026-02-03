@@ -139,7 +139,12 @@ const ProjectDetails = () => {
           <div className="absolute top-0 -right-4 w-72 md:w-96 h-72 md:h-96 bg-white/10 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-2000" />
           <div className="absolute -bottom-8 left-20 w-72 md:w-96 h-72 md:h-96 bg-accent/30 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob animation-delay-4000" />
         </div>
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.02]" />
+        <div className="absolute inset-0 opacity-[0.03]"
+          style={{
+            backgroundImage: `linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+                            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px'
+          }} />
       </div>
 
       <div className="relative">

@@ -3,6 +3,19 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-firebase': ['firebase/app', 'firebase/firestore', 'firebase/analytics'],
+          'vendor-mui': ['@mui/material', '@mui/icons-material', '@emotion/react', '@emotion/styled'],
+          'vendor-animation': ['framer-motion', 'gsap', '@react-spring/web'],
+          'vendor-spline': ['@splinetool/react-spline', '@splinetool/runtime'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
   resolve: {
     alias: {
       "@babel/runtime/helpers/builtin/interopRequireDefault": "@babel/runtime/helpers/interopRequireDefault",
