@@ -15,7 +15,10 @@ const ContactPage = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
-    AOS.init({ once: true });
+    AOS.init({
+      once: true,
+      disable: "mobile",
+    });
   }, []);
 
   const handleChange = (e) => {
@@ -73,19 +76,11 @@ const ContactPage = () => {
   return (
     <div className="px-[5%] sm:px-[10%] w-full pt-10 pb-20 bg-background" id="Contact">
       <div className="text-center mb-16" data-aos="fade-up">
-        <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
+        <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
           GET IN <span className="text-accent underline decoration-white/10 underline-offset-[12px]">TOUCH</span>
         </h2>
 
-        {/* Dynamic Phone Number - Matching user image */}
-        <div className="mt-8 mb-4">
-          <a href="tel:087264772" className="inline-block group">
-            <h3 className="text-3xl sm:text-5xl font-black tracking-tighter text-dynamic-accent relative">
-              087 264 772
-              <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-accent transition-all duration-300 group-hover:h-[4px]"></span>
-            </h3>
-          </a>
-        </div>
+
 
         <p className="text-grayText max-w-xl mx-auto text-[10px] font-black uppercase tracking-[0.3em] mt-8">
           Let's build something amazing together
@@ -95,11 +90,11 @@ const ContactPage = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         <div
           data-aos="fade-right"
-          className="bg-[#161616] border border-white/5 rounded-3xl p-8 sm:p-12 shadow-2xl transition-all duration-500 hover:border-accent/20"
+          className="bg-[#161616] border border-white/5 rounded-xl p-8 sm:p-12 shadow-2xl transition-all duration-500 hover:border-accent/20"
         >
           <div className="flex justify-between items-start mb-10">
             <div>
-              <h3 className="text-2xl font-black text-white uppercase tracking-tight mb-2">Message Me</h3>
+              <h3 className="text-xl font-black text-white uppercase tracking-tight mb-2">Message Me</h3>
               <p className="text-grayText font-medium">I'm always open to new opportunities and collaborations.</p>
             </div>
             <Share2 className="w-8 h-8 text-accent opacity-20" />
@@ -167,7 +162,7 @@ const ContactPage = () => {
           </div>
         </div>
 
-        <div className="bg-[#161616] border border-white/5 rounded-3xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-accent/20">
+        <div className="bg-[#161616] border border-white/5 rounded-xl shadow-2xl overflow-hidden transition-all duration-500 hover:border-accent/20">
           <Komentar />
         </div>
       </div>

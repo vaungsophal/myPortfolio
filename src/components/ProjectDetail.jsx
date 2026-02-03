@@ -21,7 +21,7 @@ const TechBadge = ({ tech }) => {
   const Icon = TECH_ICONS[tech] || TECH_ICONS["default"];
 
   return (
-    <div className="group relative overflow-hidden px-3 py-2 md:px-4 md:py-2.5 bg-white/5 rounded-xl border border-white/10 hover:border-accent/20 transition-all duration-300 cursor-default hover:bg-white/10">
+    <div className="group relative overflow-hidden px-3 py-2 md:px-4 md:py-2.5 bg-white/5 rounded-lg border border-white/10 hover:border-accent/20 transition-all duration-300 cursor-default hover:bg-white/10">
       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
       <div className="relative flex items-center gap-1.5 md:gap-2">
         <Icon className="w-3.5 h-3.5 md:w-4 md:h-4 text-accent transition-colors" />
@@ -35,7 +35,7 @@ const TechBadge = ({ tech }) => {
 
 const FeatureItem = ({ feature }) => {
   return (
-    <li className="group flex items-start space-x-3 p-2.5 md:p-3.5 rounded-xl hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
+    <li className="group flex items-start space-x-3 p-2.5 md:p-3.5 rounded-lg hover:bg-white/5 transition-all duration-300 border border-transparent hover:border-white/10">
       <div className="relative mt-2">
         <div className="absolute -inset-1 bg-accent/20 rounded-full blur group-hover:opacity-100 opacity-0 transition-opacity duration-300" />
         <div className="relative w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-accent group-hover:scale-125 transition-transform duration-300" />
@@ -52,7 +52,7 @@ const ProjectStats = ({ project }) => {
   const featuresCount = project?.Features?.length || 0;
 
   return (
-    <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 md:p-4 bg-[#161616] rounded-xl overflow-hidden relative border border-white/5">
+    <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 md:p-4 bg-[#161616] rounded-lg overflow-hidden relative border border-white/5">
       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative z-10 flex items-center space-x-2 md:space-x-3 bg-white/5 p-2 md:p-3 rounded-lg border border-white/10 transition-all duration-300 hover:scale-105 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(163,255,18,0.1)]">
@@ -60,7 +60,7 @@ const ProjectStats = ({ project }) => {
           <Code2 className="text-accent w-4 h-4 md:w-6 md:h-6" strokeWidth={1.5} />
         </div>
         <div className="flex-grow">
-          <div className="text-lg md:text-xl font-black text-white">{techStackCount}</div>
+          <div className="text-base md:text-lg font-black text-white">{techStackCount}</div>
           <div className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-wider">Total Tech</div>
         </div>
       </div>
@@ -70,7 +70,7 @@ const ProjectStats = ({ project }) => {
           <Layers className="text-accent w-4 h-4 md:w-6 md:h-6" strokeWidth={1.5} />
         </div>
         <div className="flex-grow">
-          <div className="text-lg md:text-xl font-black text-white">{featuresCount}</div>
+          <div className="text-base md:text-lg font-black text-white">{featuresCount}</div>
           <div className="text-[10px] md:text-xs text-gray-400 font-bold uppercase tracking-wider">Features</div>
         </div>
       </div>
@@ -147,7 +147,7 @@ const ProjectDetails = () => {
           <div className="flex items-center space-x-2 md:space-x-4 mb-8 md:mb-12 animate-fadeIn">
             <button
               onClick={() => navigate(-1)}
-              className="group inline-flex items-center space-x-1.5 md:space-x-2 px-3 md:px-5 py-2 md:py-2.5 bg-white/5 backdrop-blur-xl rounded-xl text-white/90 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-accent/20 text-sm md:text-base font-medium"
+              className="group inline-flex items-center space-x-1.5 md:space-x-2 px-3 md:px-5 py-2 md:py-2.5 bg-white/5 backdrop-blur-xl rounded-lg text-white/90 hover:bg-white/10 transition-all duration-300 border border-white/10 hover:border-accent/20 text-sm md:text-base font-medium"
             >
               <ArrowLeft className="w-4 h-4 md:w-5 md:h-5 group-hover:-translate-x-1 transition-transform" />
               <span>Back</span>
@@ -162,7 +162,7 @@ const ProjectDetails = () => {
           <div className="grid lg:grid-cols-2 gap-8 md:gap-16">
             <div className="space-y-6 md:space-y-10 animate-slideInLeft">
               <div className="space-y-4 md:space-y-6">
-                <h1 className="text-3xl md:text-6xl font-black text-white leading-tight uppercase tracking-tight">
+                <h1 className="text-2xl md:text-3xl font-black text-white leading-tight uppercase tracking-tight">
                   {project.Title}
                 </h1>
                 <div className="relative h-1 w-16 md:w-24">
@@ -172,7 +172,7 @@ const ProjectDetails = () => {
               </div>
 
               <div className="prose prose-invert max-w-none">
-                <p className="text-base md:text-lg text-gray-300/90 leading-relaxed font-light">
+                <p className="text-base md:text-base text-gray-300/90 leading-relaxed font-light">
                   {project.Description}
                 </p>
               </div>
@@ -185,7 +185,7 @@ const ProjectDetails = () => {
                   href={project.Link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center space-x-1.5 md:space-x-2 px-4 md:px-8 py-2.5 md:py-4 bg-accent text-background rounded-xl transition-all duration-300 border border-accent hover:shadow-[0_0_20px_rgba(163,255,18,0.3)] hover:scale-105 overflow-hidden text-sm md:text-base font-black uppercase tracking-wider"
+                  className="group relative inline-flex items-center space-x-1.5 md:space-x-2 px-4 md:px-8 py-2.5 md:py-4 bg-accent text-background rounded-lg transition-all duration-300 border border-accent hover:shadow-[0_0_20px_rgba(163,255,18,0.3)] hover:scale-105 overflow-hidden text-sm md:text-base font-black uppercase tracking-wider"
                 >
                   <ExternalLink className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
                   <span className="relative">Live Demo</span>
@@ -195,7 +195,7 @@ const ProjectDetails = () => {
                   href={project.Github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative inline-flex items-center space-x-1.5 md:space-x-2 px-4 md:px-8 py-2.5 md:py-4 bg-white/5 text-white/90 rounded-xl transition-all duration-300 border border-white/10 hover:bg-white/10 hover:border-white/20 overflow-hidden text-sm md:text-base font-bold uppercase tracking-wider"
+                  className="group relative inline-flex items-center space-x-1.5 md:space-x-2 px-4 md:px-8 py-2.5 md:py-4 bg-white/5 text-white/90 rounded-lg transition-all duration-300 border border-white/10 hover:bg-white/10 hover:border-white/20 overflow-hidden text-sm md:text-base font-bold uppercase tracking-wider"
                   onClick={(e) => !handleGithubClick(project.Github) && e.preventDefault()}
                 >
                   <Github className="relative w-4 h-4 md:w-5 md:h-5 group-hover:rotate-12 transition-transform" />
@@ -204,7 +204,7 @@ const ProjectDetails = () => {
               </div>
 
               <div className="space-y-4 md:space-y-6">
-                <h3 className="text-lg md:text-xl font-black text-white/90 mt-[3rem] md:mt-0 flex items-center gap-2 md:gap-3 uppercase tracking-wider">
+                <h3 className="text-lg md:text-lg font-black text-white/90 mt-[3rem] md:mt-0 flex items-center gap-2 md:gap-3 uppercase tracking-wider">
                   <Code2 className="w-4 h-4 md:w-5 md:h-5 text-accent" />
                   Technologies Used
                 </h3>
@@ -221,7 +221,7 @@ const ProjectDetails = () => {
             </div>
 
             <div className="space-y-6 md:space-y-10 animate-slideInRight">
-              <div className="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group bg-[#161616]">
+              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl group bg-[#161616]">
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 <img
                   src={project.Img}
@@ -232,8 +232,8 @@ const ProjectDetails = () => {
               </div>
 
               {/* Key Features */}
-              <div className="bg-[#161616] backdrop-blur-xl rounded-2xl p-8 border border-white/10 space-y-6 hover:border-accent/20 transition-all duration-300 group hover:shadow-[0_0_15px_rgba(163,255,18,0.05)]">
-                <h3 className="text-xl font-black text-white/90 flex items-center gap-3 uppercase tracking-wider">
+              <div className="bg-[#161616] backdrop-blur-xl rounded-xl p-8 border border-white/10 space-y-6 hover:border-accent/20 transition-all duration-300 group hover:shadow-[0_0_15px_rgba(163,255,18,0.05)]">
+                <h3 className="text-lg font-black text-white/90 flex items-center gap-3 uppercase tracking-wider">
                   <Star className="w-5 h-5 text-accent group-hover:rotate-[20deg] transition-transform duration-300" />
                   Key Features
                 </h3>
@@ -311,6 +311,11 @@ const ProjectDetails = () => {
           to {
             opacity: 1;
             transform: translateX(0);
+          }
+        }
+        @media (max-width: 768px) {
+          .animate-fadeIn, .animate-slideInLeft, .animate-slideInRight, .animate-blob {
+            animation: none !important;
           }
         }
       `}</style>

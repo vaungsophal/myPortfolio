@@ -12,9 +12,9 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
 
   return (
     <div className="group relative w-full">
-      <div className="relative overflow-hidden rounded-2xl bg-[#161616] border border-white/5 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(163,255,18,0.1)]">
+      <div className="relative overflow-hidden rounded-xl bg-[#161616] border border-white/5 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(163,255,18,0.1)]">
         <div className="relative p-4 z-10">
-          <div className="relative overflow-hidden rounded-xl aspect-video bg-black/20">
+          <div className="relative overflow-hidden rounded-lg aspect-video bg-black/20">
             <img
               src={Img}
               alt={Title}

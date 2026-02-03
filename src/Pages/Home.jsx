@@ -22,6 +22,7 @@ const Home = () => {
     AOS.init({
       once: true,
       duration: 1000,
+      disable: "mobile",
     });
     setIsLoaded(true);
   }, []);
@@ -31,7 +32,7 @@ const Home = () => {
       <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
 
         {/* Header Section - Inspired by the reference image */}
-        <header className="px-[5%] sm:px-[10%] pt-8 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-0">
+        <header className="px-[5%] sm:px-[10%] pt-6 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
           <div className="text-sm font-bold tracking-widest text-white/50" data-aos="fade-right">
             SOPHAL VAUNG
           </div>
@@ -48,14 +49,14 @@ const Home = () => {
         </header>
 
         {/* Main Content */}
-        <div className="px-[5%] sm:px-[10%] min-h-[calc(100vh-100px)] flex flex-col justify-center py-20">
+        <div className="px-[5%] sm:px-[10%] min-h-[calc(100vh-100px)] flex flex-col justify-center py-10 sm:py-20 mt-10 sm:mt-0">
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
 
             {/* Left: Image Card */}
             <div className="w-full lg:w-[450px]" data-aos="fade-right" data-aos-delay="400">
               <div className="relative group">
-                <div className="absolute -inset-1 bg-accent/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#161616] border border-white/5 shadow-2xl">
+                <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#161616] border border-white/5 shadow-2xl">
                   {/* Background overlay for the image like in reference */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
 
@@ -68,26 +69,37 @@ const Home = () => {
 
                   {/* Card Footer Text */}
                   <div className="absolute bottom-8 left-8 z-20">
-                    <h3 className="text-2xl font-bold tracking-tight">Sophal VAUNG</h3>
-                    <p className="text-accent text-sm font-bold tracking-widest mt-1">AVAILABLE FOR INTERN</p>
+                    <h3 className="text-xl font-bold tracking-tight">Sophal VAUNG</h3>
+                    <p className="text-accent text-sm font-bold tracking-widest mt-1">AVAILABLE FOR WORK</p>
                   </div>
 
                   {/* Floating Icon Badges */}
                   <div className="absolute top-6 left-6 z-20 p-2 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
                     <img src="/figma-logo.png" alt="Figma" className="w-6 h-6 opacity-80" onError={(e) => e.target.style.display = 'none'} />
                   </div>
-                  <div className="absolute bottom-1/2 right-6 translate-y-1/2 z-20 p-2 bg-black/40 backdrop-blur-md rounded-lg border border-white/10">
-                    <Github className="w-6 h-6 text-white/80" />
+
+                  <div className="absolute bottom-1/2 right-6 translate-y-1/2 z-20 flex flex-col gap-4">
+                    <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
+                      <Github className="w-5 h-5 text-white/80 group-hover:text-white" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
+                      <Linkedin className="w-5 h-5 text-white/80 group-hover:text-[#0077b5]" />
+                    </a>
+                    <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:bg-white/10 transition-colors group">
+                      <Send className="w-5 h-5 text-white/80 group-hover:text-[#229ED9]" />
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
 
+
+
             {/* Right: Content Text */}
-            <div className="flex-1 space-y-10">
+            <div className="w-full flex-1 space-y-10 text-center lg:text-left">
               <div className="space-y-4">
-                <h1 className="text-5xl sm:text-6xl md:text-7xl xl:text-8xl font-black leading-[1.1] tracking-tighter" data-aos="fade-up" data-aos-delay="600">
-                  Hello, I'm <span className="text-dynamic-accent underline decoration-white/5 underline-offset-[12px]">Sophal VAUNG</span>,
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tighter" data-aos="fade-up" data-aos-delay="600">
+                  Hello, I'm <span className="text-accent underline decoration-white/5 underline-offset-[12px]">Sophal VAUNG</span>,
                   <br />
                   <span className="text-white/40">Software Developer</span>
                   <br />
@@ -95,9 +107,9 @@ const Home = () => {
                 </h1>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-5xl sm:text-7xl font-black text-dynamic-accent animate-pulse-glow">4th Year</span>
+                  <span className="text-3xl md:text-5xl font-black text-accent animate-pulse-glow">4th Year</span>
                   <span className="text-white/40 font-medium tracking-widest uppercase text-xs">University Student</span>
                 </div>
 
@@ -113,15 +125,187 @@ const Home = () => {
                   </div>
                 </a>
               </div>
+
+
+              {/* Mobile Tech Stack Marquee */}
+              <div className="w-full block lg:hidden overflow-hidden py-4" data-aos="fade-up" data-aos-delay="1000">
+                <div className="flex relative w-full max-w-lg mask-gradient-x">
+                  <div className="flex animate-marquee whitespace-nowrap gap-12">
+                    {[
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                    ].map((tech, index) => (
+                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
+                        <img
+                          src={tech.icon}
+                          alt={tech.language}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12">
+                    {[
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                    ].map((tech, index) => (
+                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
+                        <img
+                          src={tech.icon}
+                          alt={tech.language}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Desktop Tech Stack Marquee */}
+              <div className="w-full hidden lg:block overflow-hidden py-10" data-aos="fade-up" data-aos-delay="1000">
+                <div className="flex relative w-full max-w-lg mask-gradient-x">
+                  <div className="flex animate-marquee whitespace-nowrap gap-12">
+                    {[
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                    ].map((tech, index) => (
+                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
+                        <img
+                          src={tech.icon}
+                          alt={tech.language}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12">
+                    {[
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                      { icon: "tech/html.svg", language: "HTML" },
+                      { icon: "tech/css.svg", language: "CSS" },
+                      { icon: "tech/javascript.svg", language: "JavaScript" },
+                      { icon: "tech/typescript.svg", language: "TypeScript" },
+                      { icon: "tech/reactjs.svg", language: "ReactJS" },
+                      { icon: "tech/nextjss.png", language: "Next JS" },
+                      { icon: "tech/vite.svg", language: "Vite" },
+                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+                      { icon: "tech/nodejs.svg", language: "Node JS" },
+                      { icon: "tech/python.png", language: "Python" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+                      { icon: "tech/firebase.svg", language: "Firebase" },
+                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+                    ].map((tech, index) => (
+                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
+                        <img
+                          src={tech.icon}
+                          alt={tech.language}
+                          className="w-full h-full object-contain"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
 
-      </div>
-
-      {/* Background Decorative Text - Large subtle text at the bottom or side */}
-      <div className="fixed bottom-0 right-0 p-8 opacity-[0.02] pointer-events-none select-none z-0">
-        <h2 className="text-[15rem] font-black leading-none tracking-tighter">SOPHAL</h2>
+        {/* Background Decorative Text - Large subtle text at the bottom or side */}
+        <div className="fixed bottom-0 right-0 p-8 opacity-[0.02] pointer-events-none select-none z-0">
+          <h2 className="text-[15rem] font-black leading-none tracking-tighter">SOPHAL</h2>
+        </div>
       </div>
     </div>
   );

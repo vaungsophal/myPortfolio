@@ -158,7 +158,7 @@ export default function FullWidthTabs() {
   ];
 
   useEffect(() => {
-    AOS.init({ once: true });
+    AOS.init({ once: true, disable: "mobile" });
     localStorage.setItem("projects", JSON.stringify(projects));
     localStorage.setItem("certificates", JSON.stringify(certificates));
   }, []);
@@ -173,8 +173,8 @@ export default function FullWidthTabs() {
   return (
     <div className="px-[5%] sm:px-[10%] lg:px-[10%] w-full pt-10 min-h-screen bg-background text-white" id="Portofolio">
       <div className="text-center mb-16" data-aos="fade-up">
-        <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4">
-          WORK <span className="text-dynamic-accent">GALLERY</span>
+        <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
+          WORK <span className="text-accent">GALLERY</span>
         </h2>
         <p className="text-grayText max-w-xl mx-auto text-sm md:text-base font-bold uppercase tracking-widest text-xs">
           Crafting excellence through code and research
@@ -251,7 +251,7 @@ export default function FullWidthTabs() {
               {techStacks.map((group, index) => (
                 <div key={index} className="space-y-8">
                   <div className="flex items-center gap-6" data-aos="fade-right">
-                    <h3 className="text-xl font-black uppercase tracking-widest text-white">{group.name}</h3>
+                    <h3 className="text-lg font-black uppercase tracking-widest text-white">{group.name}</h3>
                     <div className="h-[1px] flex-grow bg-white/5"></div>
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">

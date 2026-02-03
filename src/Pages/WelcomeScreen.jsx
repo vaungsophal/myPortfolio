@@ -33,8 +33,8 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
       y: 0,
       filter: "blur(0px)",
       transition: {
-        delay: i * 0.05,
-        duration: 0.4,
+        delay: i * 0.03,
+        duration: 0.3,
         ease: "easeOut",
       },
     }),
@@ -61,7 +61,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
                   variants={letterVariants}
                   initial="hidden"
                   animate="visible"
-                  className="text-white text-2xl sm:text-3xl md:text-4xl font-black tracking-[0.5em] sm:tracking-[0.8em] inline-block last:mr-0 select-none"
+                  className="text-white text-xl sm:text-2xl font-black tracking-[0.5em] sm:tracking-[0.8em] inline-block last:mr-0 select-none font-['Poppins']"
                   style={{
                     marginRight: index === loadingText.length - 1 ? '0' : '0.8em',
                   }}

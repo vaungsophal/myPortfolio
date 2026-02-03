@@ -75,7 +75,7 @@ const Navbar = () => {
                 }`}
         >
             <div className="mx-auto px-[5%] sm:px-[10%] lg:px-[10%]">
-                <div className="flex items-center justify-between h-20">
+                <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <div className="flex-shrink-0">
                         <a
@@ -95,7 +95,7 @@ const Navbar = () => {
                                     key={item.label}
                                     href={item.href}
                                     onClick={(e) => scrollToSection(e, item.href)}
-                                    className="group relative px-1 py-2 text-xs font-bold tracking-[0.2em] hover:text-accent transition-colors duration-300"
+                                    className="group relative px-1 py-2 text-sm font-bold tracking-[0.2em] hover:text-accent transition-colors duration-300"
                                 >
                                     <span
                                         className={`relative z-10 transition-colors duration-300 ${activeSection === item.href.substring(1)
@@ -134,7 +134,7 @@ const Navbar = () => {
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-[-20px] pointer-events-none"
                     }`}
-                style={{ top: "80px", height: "calc(100vh - 80px)" }}
+                style={{ top: "64px", height: "calc(100vh - 64px)" }}
             >
                 <div className="flex flex-col items-center justify-center h-full space-y-10">
                     {navItems.map((item, index) => (
@@ -142,7 +142,7 @@ const Navbar = () => {
                             key={item.label}
                             href={item.href}
                             onClick={(e) => scrollToSection(e, item.href)}
-                            className={`text-3xl font-black uppercase tracking-tighter transition-all duration-500 group relative ${activeSection === item.href.substring(1)
+                            className={`text-2xl font-black uppercase tracking-tighter transition-all duration-500 group relative ${activeSection === item.href.substring(1)
                                 ? "text-accent"
                                 : "text-white/50 hover:text-white"
                                 }`}

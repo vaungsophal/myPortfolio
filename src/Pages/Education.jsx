@@ -8,6 +8,7 @@ const Education = () => {
         AOS.init({
             once: false,
             duration: 1000,
+            disable: "mobile",
         });
     }, []);
 
@@ -50,11 +51,11 @@ const Education = () => {
 
     return (
         <section className="relative min-h-screen py-24 bg-background overflow-hidden" id="Education">
-            <div className="container mx-auto px-[5%] sm:px-[10%] relative z-10">
+            <div className="px-[5%] sm:px-[10%] relative z-10">
                 {/* Header Section */}
                 <div className="max-w-3xl mb-20 text-center sm:text-left">
-                    <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase tracking-tighter" data-aos="fade-right">
-                        EDUCATION <span className="text-dynamic-accent">HISTORY</span>
+                    <h2 className="text-2xl md:text-3xl font-black mb-6 uppercase tracking-tighter" data-aos="fade-right">
+                        EDUCATION <span className="text-accent">HISTORY</span>
                     </h2>
                     <p className="text-grayText text-lg md:text-xl leading-relaxed max-w-2xl font-medium" data-aos="fade-right" data-aos-delay="100">
                         My academic journey is a blend of local excellence and international exposure,
@@ -71,12 +72,12 @@ const Education = () => {
                             data-aos="fade-up"
                             data-aos-delay={index * 200}
                         >
-                            <div className="relative h-full bg-[#161616] border border-white/5 rounded-3xl p-10 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_20px_rgba(163,255,18,0.1)]">
+                            <div className="relative h-full bg-[#161616] border border-white/5 rounded-xl p-10 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_20px_rgba(163,255,18,0.1)]">
 
                                 <div className="flex flex-col h-full space-y-8">
                                     {/* Top Row */}
                                     <div className="flex items-center justify-between">
-                                        <div className={`px-4 py-1 rounded-full ${edu.color} text-background text-[10px] font-black uppercase tracking-[0.2em]`}>
+                                        <div className={`px-4 py-1 rounded-xl ${edu.color} text-background text-[10px] font-black uppercase tracking-[0.2em]`}>
                                             {edu.tag}
                                         </div>
                                         <div className="flex items-center gap-2 text-grayText font-bold text-xs uppercase tracking-widest">
@@ -86,8 +87,8 @@ const Education = () => {
                                     </div>
 
                                     {/* Institution */}
-                                    <div className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                                        <div className="w-16 h-16 flex-shrink-0 grayscale group-hover:grayscale-0 transition-all duration-500">
+                                    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                                        <div className={`${edu.institution === "National University of Singapore" ? "w-32 h-32" : "w-16 h-16"} flex-shrink-0 transition-all duration-500`}>
                                             <img
                                                 src={edu.logo}
                                                 alt={edu.institution}
@@ -96,7 +97,7 @@ const Education = () => {
                                             />
                                         </div>
                                         <div>
-                                            <h3 className="text-2xl font-black text-white leading-tight uppercase tracking-tight">
+                                            <h3 className="text-xl font-black text-white leading-tight uppercase tracking-tight">
                                                 {edu.institution}
                                             </h3>
                                             <div className="flex items-center gap-2 text-grayText mt-1">
@@ -112,7 +113,7 @@ const Education = () => {
                                             <GraduationCap className="w-5 h-5" />
                                             <span className="text-sm font-bold tracking-widest uppercase">{edu.shortDate}</span>
                                         </div>
-                                        <p className="text-lg font-bold text-white uppercase tracking-tight">
+                                        <p className="text-base font-bold text-white uppercase tracking-tight">
                                             {edu.degree}
                                         </p>
                                         <p className="text-grayText text-sm leading-relaxed italic">

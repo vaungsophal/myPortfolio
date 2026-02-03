@@ -8,11 +8,11 @@ const Header = memo(() => (
   <div className="text-center lg:mb-8 mb-2 px-[5%]">
     <div className="inline-block relative group">
       <h2
-        className="text-4xl md:text-5xl font-bold text-white uppercase tracking-tighter"
+        className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tighter"
         data-aos="zoom-in-up"
         data-aos-duration="600"
       >
-        About <span className="text-dynamic-accent">Me</span>
+        About <span className="text-accent">Me</span>
       </h2>
     </div>
     <p
@@ -38,7 +38,7 @@ const ProfileImage = memo(() => (
       <div className="absolute -inset-4 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
 
       <div className="relative">
-        <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-2xl overflow-hidden border border-white/10 transform transition-all duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-2xl">
+        <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-xl overflow-hidden border border-white/10 transform transition-all duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-2xl">
           <img
             src="/Photo.png"
             alt="Profile"
@@ -49,7 +49,7 @@ const ProfileImage = memo(() => (
         </div>
 
         {/* Floating Accent Box */}
-        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 backdrop-blur-xl border border-accent/20 rounded-2xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
+        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 backdrop-blur-xl border border-accent/20 rounded-xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
       </div>
     </div>
   </div>
@@ -57,12 +57,12 @@ const ProfileImage = memo(() => (
 
 const StatCard = memo(({ icon: Icon, value, label, description, animation }) => (
   <div data-aos={animation} data-aos-duration={1300} className="relative group">
-    <div className="relative z-10 bg-[#161616] border border-white/5 rounded-2xl p-8 transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 h-full">
+    <div className="relative z-10 bg-[#161616] border border-white/5 rounded-xl p-8 transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 h-full">
       <div className="flex items-center justify-between mb-6">
         <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 transition-colors group-hover:bg-accent group-hover:border-accent">
           <Icon className="w-6 h-6 text-white group-hover:text-background transition-colors" />
         </div>
-        <span className="text-4xl font-black text-white">{value}</span>
+        <span className="text-3xl font-black text-white">{value}</span>
       </div>
 
       <h3 className="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-2">{label}</h3>
@@ -86,7 +86,7 @@ const AboutPage = () => {
   }, []);
 
   useEffect(() => {
-    AOS.init({ once: true });
+    AOS.init({ once: true, disable: "mobile" });
   }, []);
 
   const statsData = useMemo(() => [
@@ -121,7 +121,7 @@ const AboutPage = () => {
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center">
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
-              <h2 className="text-3xl sm:text-5xl font-black tracking-tighter" data-aos="fade-right">
+              <h2 className="text-2xl md:text-3xl font-black tracking-tighter" data-aos="fade-right">
                 I'M A <span className="text-accent">SOFTWARE DEVELOPER</span>
                 <br />
                 & ENTREPRENEUR
