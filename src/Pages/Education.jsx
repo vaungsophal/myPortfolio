@@ -77,7 +77,7 @@ const Education = () => {
                                 <div className="flex flex-col h-full space-y-8">
                                     {/* Top Row */}
                                     <div className="flex items-center justify-between">
-                                        <div className={`px-4 py-1 rounded-xl ${edu.color} text-background text-[10px] font-black uppercase tracking-[0.2em]`}>
+                                        <div className={`px-3 py-1 rounded-md ${edu.color} text-background text-[10px] font-black uppercase tracking-[0.2em]`}>
                                             {edu.tag}
                                         </div>
                                         <div className="flex items-center gap-2 text-grayText font-bold text-xs uppercase tracking-widest">

@@ -84,7 +84,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     placeholder="Enter your name"
-                    className="w-full p-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
+                    className="w-full p-3 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                     required
                 />
             </div>
@@ -98,7 +98,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                     value={newComment}
                     onChange={handleTextareaChange}
                     placeholder="Write your message here..."
-                    className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none min-h-[120px]"
+                    className="w-full p-4 rounded-lg bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none min-h-[120px]"
                     required
                 />
             </div>
@@ -107,7 +107,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                 <label className="block text-sm font-medium text-white">
                     Profile Photo <span className="text-gray-400">(optional)</span>
                 </label>
-                <div className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-xl">
+                <div className="flex items-center gap-4 p-4 bg-white/5 border border-white/10 rounded-lg">
                     {imagePreview ? (
                         <div className="flex items-center gap-4">
                             <img
@@ -122,7 +122,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                                     setImageFile(null);
                                     if (fileInputRef.current) fileInputRef.current.value = '';
                                 }}
-                                className="flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/20 text-red-400 hover:bg-red-500/30 transition-all group"
+                                className="flex items-center gap-2 px-4 py-2 rounded-md bg-red-500/20 text-red-400 hover:bg-red-500/30 transition-all group"
                             >
                                 <X className="w-4 h-4" />
                                 <span>Remove Photo</span>
@@ -140,7 +140,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                             <button
                                 type="button"
                                 onClick={() => fileInputRef.current?.click()}
-                                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 group-hover:bg-white/10 text-white/70 group-hover:text-white transition-all border border-dashed border-white/20 hover:border-accent group"
+                                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-white/5 group-hover:bg-white/10 text-white/70 group-hover:text-white transition-all border border-dashed border-white/20 hover:border-accent group"
                             >
                                 <ImagePlus className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                 <span>Choose Profile Photo</span>
@@ -157,7 +157,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                 type="submit"
                 disabled={isSubmitting}
                 data-aos="fade-up" data-aos-duration="1000"
-                className="relative w-full h-12 bg-accent rounded-xl font-bold text-[#0c0c0c] uppercase tracking-widest overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="relative w-full h-10 bg-accent rounded-lg font-bold text-[#0c0c0c] uppercase tracking-widest overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
             >
                 <div className="absolute inset-0 bg-white/20 translate-y-12 group-hover:translate-y-0 transition-transform duration-300" />
                 <div className="relative flex items-center justify-center gap-2">

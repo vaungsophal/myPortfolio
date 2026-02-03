@@ -38,7 +38,7 @@ const ProfileImage = memo(() => (
       <div className="absolute -inset-4 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
 
       <div className="relative">
-        <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-xl overflow-hidden border border-white/10 transform transition-all duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-2xl">
+        <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-lg overflow-hidden border border-white/10 transform transition-all duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-2xl">
           <img
             src="/Photo.png"
             alt="Profile"
@@ -49,7 +49,7 @@ const ProfileImage = memo(() => (
         </div>
 
         {/* Floating Accent Box */}
-        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 backdrop-blur-xl border border-accent/20 rounded-xl -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
+        <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 backdrop-blur-xl border border-accent/20 rounded-lg -z-10 group-hover:translate-x-2 group-hover:translate-y-2 transition-transform duration-700"></div>
       </div>
     </div>
   </div>
@@ -136,10 +136,10 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-wrap justify-center lg:justify-start gap-4" data-aos="fade-up" data-aos-delay="400">
-              <button className="px-8 py-4 bg-accent text-background font-bold rounded-xl hover:scale-105 transition-all shadow-lg shadow-accent/20">
+              <button className="px-6 py-3 bg-accent text-background font-bold rounded-lg hover:scale-105 transition-all shadow-lg shadow-accent/20">
                 VIEW MY WORK
               </button>
-              <button className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-xl hover:bg-white/10 transition-all">
+              <button className="px-6 py-3 bg-white/5 border border-white/10 text-white font-bold rounded-lg hover:bg-white/10 transition-all">
                 LEARN MORE
               </button>
             </div>

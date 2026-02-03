@@ -149,7 +149,7 @@ const Home = () => {
 
               <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-4xl md:text-5xl font-semibold text-accent animate-pulse-glow text-shadow-md">4th Year</span>
+                  <span className="text-3xl md:text-4xl font-semibold text-accent animate-pulse-glow text-shadow-md">4th Year</span>
                   <span className="text-gray-500 font-medium tracking-widest uppercase text-[10px] sm:text-xs text-shadow-sm">University Student</span>
                 </div>
 
@@ -157,7 +157,7 @@ const Home = () => {
                   href="https://drive.google.com/file/d/1LIXG-Eobjfi479vtVgMC-IKl8Zyjpfoo/view?usp=drive_link"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative px-8 py-4 bg-white/5 border border-white/10 rounded-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
+                  className="group relative px-6 py-3 bg-white/5 border border-white/10 rounded-lg hover:border-accent/50 transition-all duration-300 overflow-hidden"
                 >
                   <div className="absolute inset-0 bg-accent/70 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></div>
                   <div className="relative flex items-center gap-3">

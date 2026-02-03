@@ -20,7 +20,7 @@ import { useMediaQuery } from "@mui/material";
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
-    className="px-6 py-3 bg-[#161616] border border-white/10 hover:border-accent text-white text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-lg hover:scale-105 flex items-center gap-3 group"
+    className="px-4 py-2 bg-[#161616] border border-white/10 hover:border-accent text-white text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-md hover:scale-105 flex items-center gap-3 group"
   >
     {isShowingMore ? "SEE LESS" : "SEE MORE"}
     <svg

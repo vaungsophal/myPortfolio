@@ -64,7 +64,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
               {id ? (
                 <Link
                   to={`/project/${id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white text-xs font-bold tracking-widest hover:bg-accent hover:text-[#0c0c0c] transition-all duration-300 hover:shadow-[0_0_10px_rgba(59, 130, 246, 0.3)] active:scale-95"
+                  className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-white/5 text-white text-xs font-bold tracking-widest hover:bg-accent hover:text-[#0c0c0c] transition-all duration-300 hover:shadow-[0_0_10px_rgba(59, 130, 246, 0.3)] active:scale-95"
                 >
                   DETAILS
                   <ArrowRight className="w-3 h-3" />
