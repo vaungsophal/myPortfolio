@@ -78,6 +78,42 @@ function App() {
             <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
           }
         />
+        <Route
+          path="/about"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/education"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/portfolio"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/certificate"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/tech"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
         <Route path="/project/:id" element={<ProjectPageLayout />} />
       </Routes>
     </BrowserRouter>

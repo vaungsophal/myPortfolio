@@ -15,6 +15,31 @@ const SocialIcon = memo(({ Icon, href }) => (
   </a>
 ));
 
+const TECH_STACK = [
+  { icon: "tech/html.svg", language: "HTML" },
+  { icon: "tech/css.svg", language: "CSS" },
+  { icon: "tech/javascript.svg", language: "JavaScript" },
+  { icon: "tech/typescript.svg", language: "TypeScript" },
+  { icon: "tech/reactjs.svg", language: "ReactJS" },
+  { icon: "tech/nextjss.png", language: "Next JS" },
+  { icon: "tech/vite.svg", language: "Vite" },
+  { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
+  { icon: "tech/bootstrap.svg", language: "Bootstrap" },
+  { icon: "tech/MUI.svg", language: "Material UI" },
+  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", language: "Vue.js" },
+  { icon: "tech/nodejs.svg", language: "Node JS" },
+  { icon: "tech/python.png", language: "Python" },
+  { icon: "https://favtutor.com/resources/images/uploads/Java_logo.png", language: "Java" },
+  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
+  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", language: "PostgreSQL" },
+  { icon: "tech/firebase.svg", language: "Firebase" },
+  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", language: "AWS" },
+  { icon: "tech/vercel.svg", language: "Vercel" },
+  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
+  { icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg", language: "Postman" },
+  { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
+];
+
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false)
 
@@ -49,8 +74,8 @@ const Home = () => {
         </header>
 
         {/* Main Content */}
-        <div className="px-[5%] sm:px-[10%] min-h-[calc(100vh-100px)] flex flex-col justify-center py-10 sm:py-20 mt-10 sm:mt-0">
-          <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        <div className="px-[5%] sm:px-[10%] min-h-[calc(100vh-100px)] flex flex-col justify-center pt-4 pb-12 sm:py-20">
+          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
 
             {/* Left: Image Card */}
             <div className="w-full lg:w-[450px]" data-aos="fade-right" data-aos-delay="400">
@@ -69,7 +94,7 @@ const Home = () => {
 
                   {/* Card Footer Text */}
                   <div className="absolute bottom-8 left-8 z-20">
-                    <h3 className="text-xl font-bold tracking-tight">Sophal VAUNG</h3>
+                    <h3 className="text-xl font-bold tracking-tight text-white">Sophal VAUNG</h3>
                     <p className="text-accent text-sm font-bold tracking-widest mt-1">AVAILABLE FOR WORK</p>
                   </div>
 
@@ -96,10 +121,10 @@ const Home = () => {
 
 
             {/* Right: Content Text */}
-            <div className="w-full flex-1 space-y-10 text-center lg:text-left">
-              <div className="space-y-4">
+            <div className="w-full flex-1 space-y-8 text-center lg:text-left">
+              <div className="space-y-3">
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-black leading-[1.1] tracking-tighter" data-aos="fade-up" data-aos-delay="600">
-                  Hello, I'm <span className="text-accent underline decoration-white/5 underline-offset-[12px]">Sophal VAUNG</span>,
+                  Hello, I'm <span className="text-accent">Sophal VAUNG</span>,
                   <br />
                   <span className="text-white/40">Software Developer</span>
                   <br />
@@ -107,21 +132,22 @@ const Home = () => {
                 </h1>
               </div>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-8 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
+              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-3xl md:text-5xl font-black text-accent animate-pulse-glow">4th Year</span>
-                  <span className="text-white/40 font-medium tracking-widest uppercase text-xs">University Student</span>
+                  <span className="text-4xl md:text-5xl font-black text-accent animate-pulse-glow">4th Year</span>
+                  <span className="text-white/40 font-medium tracking-widest uppercase text-[10px] sm:text-xs">University Student</span>
                 </div>
 
                 <a
-                  href="/CV.pdf"
+                  href="https://drive.google.com/file/d/1LIXG-Eobjfi479vtVgMC-IKl8Zyjpfoo/view?usp=drive_link"
                   target="_blank"
-                  className="group relative px-8 py-4 bg-transparent border border-white/20 rounded-xl hover:border-accent transition-all duration-300 overflow-hidden"
+                  rel="noopener noreferrer"
+                  className="group relative px-8 py-4 bg-white/5 border border-white/10 rounded-xl hover:border-accent/50 transition-all duration-300 overflow-hidden"
                 >
-                  <div className="absolute inset-0 bg-accent translate-y-[101%] group-hover:translate-y-0 transition-transform duration-300"></div>
+                  <div className="absolute inset-0 bg-accent translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></div>
                   <div className="relative flex items-center gap-3">
                     <FileText className="w-5 h-5 text-white group-hover:text-background transition-colors" />
-                    <span className="text-sm font-bold tracking-widest group-hover:text-background transition-colors">DOWNLOAD CV</span>
+                    <span className="text-sm font-bold tracking-widest group-hover:text-background transition-colors uppercase">DOWNLOAD CV</span>
                   </div>
                 </a>
               </div>
@@ -131,36 +157,7 @@ const Home = () => {
               <div className="w-full block lg:hidden overflow-hidden py-4" data-aos="fade-up" data-aos-delay="1000">
                 <div className="flex relative w-full max-w-lg mask-gradient-x">
                   <div className="flex animate-marquee whitespace-nowrap gap-12">
-                    {[
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                    ].map((tech, index) => (
+                    {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
                           src={tech.icon}
@@ -171,36 +168,7 @@ const Home = () => {
                     ))}
                   </div>
                   <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12">
-                    {[
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                    ].map((tech, index) => (
+                    {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
                           src={tech.icon}
@@ -217,36 +185,7 @@ const Home = () => {
               <div className="w-full hidden lg:block overflow-hidden py-10" data-aos="fade-up" data-aos-delay="1000">
                 <div className="flex relative w-full max-w-lg mask-gradient-x">
                   <div className="flex animate-marquee whitespace-nowrap gap-12">
-                    {[
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                    ].map((tech, index) => (
+                    {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
                           src={tech.icon}
@@ -257,36 +196,7 @@ const Home = () => {
                     ))}
                   </div>
                   <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12">
-                    {[
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                      { icon: "tech/html.svg", language: "HTML" },
-                      { icon: "tech/css.svg", language: "CSS" },
-                      { icon: "tech/javascript.svg", language: "JavaScript" },
-                      { icon: "tech/typescript.svg", language: "TypeScript" },
-                      { icon: "tech/reactjs.svg", language: "ReactJS" },
-                      { icon: "tech/nextjss.png", language: "Next JS" },
-                      { icon: "tech/vite.svg", language: "Vite" },
-                      { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-                      { icon: "tech/nodejs.svg", language: "Node JS" },
-                      { icon: "tech/python.png", language: "Python" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-                      { icon: "tech/firebase.svg", language: "Firebase" },
-                      { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-                      { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-                    ].map((tech, index) => (
+                    {TECH_STACK.map((tech, index) => (
                       <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
                         <img
                           src={tech.icon}

@@ -13,12 +13,14 @@ import "aos/dist/aos.css";
 import Certificate from "../components/Certificate";
 import TechStackIcon from "../components/TechStackIcon";
 import { Code, Award, Boxes } from "lucide-react";
+import { useLocation } from "react-router-dom";
+import { useMediaQuery } from "@mui/material";
 
 // ToggleButton Component
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
-    className="px-6 py-3 bg-[#161616] border border-white/10 hover:border-accent text-white text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-xl hover:scale-105 flex items-center gap-3 group"
+    className="px-6 py-3 bg-[#161616] border border-white/10 hover:border-accent text-white text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-lg hover:scale-105 flex items-center gap-3 group"
   >
     {isShowingMore ? "SEE LESS" : "SEE MORE"}
     <svg
@@ -47,11 +49,9 @@ function TabPanel({ children, value, index, ...other }) {
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
     >
-      {value === index && (
-        <Box sx={{ p: { xs: 1, sm: 3 } }}>
-          <Typography component="div">{children}</Typography>
-        </Box>
-      )}
+      <Box sx={{ p: { xs: 1, sm: 3 }, display: value === index ? "block" : "none" }}>
+        <Typography component="div">{children}</Typography>
+      </Box>
     </div>
   );
 }
@@ -96,72 +96,96 @@ const techStacks = [
   }
 ];
 
-export default function FullWidthTabs() {
+const projects = [
+  {
+    id: 1,
+    Img: "/works/AUPPNetworkingApp.png",
+    Title: "AUPP Alumni Networking App",
+    Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system and full CI/CD pipeline.",
+    Link: "https://connectable.aurrasms.com/",
+    TechStack: ["Next.js", "Node.js", "Tailwind", "AWS"],
+  },
+  {
+    id: 2,
+    Img: "/works/screenwise0.png",
+    Title: "ScreenWise - AI HR Screening",
+    Description: "Top 3 award winner in ACTSmart Incubation Program. AI-powered HR screening platform optimized for efficiency.",
+    Link: "https://www.screenwisekh.com",
+    Github: "Private",
+    TechStack: ["Vue.js", "Python", "AI"],
+  },
+  {
+    id: 3,
+    Img: "https://s3-alpha.figma.com/hub/file/5133548925/6dcf8298-fd72-4aba-a023-a5298b36b990-cover.png",
+    Title: "Task Manager Application",
+    Description: "A powerful tool to organize and manage tasks effectively with real-time notifications.",
+    Link: "https://task-manager-pol.vercel.app/",
+    TechStack: ["React", "Next.js", "Firebase"],
+  },
+  {
+    id: 4,
+    Img: "https://tairo.cssninja.io/img/screens/dashboards-banking-2.png",
+    Title: "Financial Management System",
+    Description: "Streamlined tool for budget management and financial tracking with interactive dashboards.",
+    Link: "https://github.com/vaungsophal/Expense-Tracker-App.git",
+    TechStack: ["Python", "SQLite"],
+  },
+  {
+    id: 5,
+    Img: "https://github.com/sophal-vaung/me/blob/main/e9tzyh9m.png?raw=true",
+    Title: "DDoS Detection system",
+    Description: "Machine learning-based system for detecting and classifying DDoS attacks with real-time traffic analysis.",
+    Link: "https://vaungsophal-ddos-detection.streamlit.app/",
+    TechStack: ["Python", "Streamlit"],
+  }
+];
+
+const certificates = [
+  { Img: "/certificates/ExchangeProgram_RAS2025_SG.jpg" },
+  { Img: "/certificates/AWS_Cloud_Architecting.jpg" },
+  { Img: "/certificates/AWS_Cloud_Foundations.jpg" },
+  { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true" },
+  { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001%20(1).jpg?raw=true" },
+  { Img: "https://github.com/sophal-vaung/me/blob/main/cert-frontend_page-0001.jpg?raw=true" },
+];
+
+function FullWidthTabs() {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+
   const [value, setValue] = useState(0);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
-  const isMobile = window.innerWidth < 768;
   const initialItems = isMobile ? 4 : 6;
-
-  const projects = [
-    {
-      id: 1,
-      Img: "/works/AUPPNetworkingApp.png",
-      Title: "AUPP Alumni Networking App",
-      Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system and full CI/CD pipeline.",
-      Link: "https://connectable.aurrasms.com/",
-      TechStack: ["Next.js", "Node.js", "Tailwind", "AWS"],
-    },
-    {
-      id: 2,
-      Img: "/works/screenwise0.png",
-      Title: "ScreenWise - AI HR Screening",
-      Description: "Top 3 award winner in ACTSmart Incubation Program. AI-powered HR screening platform optimized for efficiency.",
-      Link: "https://www.screenwisekh.com",
-      Github: "Private",
-      TechStack: ["Vue.js", "Python", "AI"],
-    },
-    {
-      id: 3,
-      Img: "https://s3-alpha.figma.com/hub/file/5133548925/6dcf8298-fd72-4aba-a023-a5298b36b990-cover.png",
-      Title: "Task Manager Application",
-      Description: "A powerful tool to organize and manage tasks effectively with real-time notifications.",
-      Link: "https://task-manager-pol.vercel.app/",
-      TechStack: ["React", "Next.js", "Firebase"],
-    },
-    {
-      id: 4,
-      Img: "https://tairo.cssninja.io/img/screens/dashboards-banking-2.png",
-      Title: "Financial Management System",
-      Description: "Streamlined tool for budget management and financial tracking with interactive dashboards.",
-      Link: "https://github.com/vaungsophal/Expense-Tracker-App.git",
-      TechStack: ["Python", "SQLite"],
-    },
-    {
-      id: 5,
-      Img: "https://github.com/sophal-vaung/me/blob/main/e9tzyh9m.png?raw=true",
-      Title: "DDoS Detection system",
-      Description: "Machine learning-based system for detecting and classifying DDoS attacks with real-time traffic analysis.",
-      Link: "https://vaungsophal-ddos-detection.streamlit.app/",
-      TechStack: ["Python", "Streamlit"],
-    }
-  ];
-
-  const certificates = [
-    { Img: "/certificates/ExchangeProgram_RAS2025_SG.jpg" },
-    { Img: "/certificates/AWS_Cloud_Architecting.jpg" },
-    { Img: "/certificates/AWS_Cloud_Foundations.jpg" },
-    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true" },
-    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001%20(1).jpg?raw=true" },
-    { Img: "https://github.com/sophal-vaung/me/blob/main/cert-frontend_page-0001.jpg?raw=true" },
-  ];
+  const location = useLocation();
 
   useEffect(() => {
     AOS.init({ once: true, disable: "mobile" });
-    localStorage.setItem("projects", JSON.stringify(projects));
-    localStorage.setItem("certificates", JSON.stringify(certificates));
-  }, []);
+    const path = location.pathname;
+    if (path === "/portfolio") {
+      setValue(0);
+      setTimeout(() => {
+        document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' });
+        AOS.refresh();
+      }, 100);
+    } else if (path === "/certificate") {
+      setValue(1);
+      setTimeout(() => {
+        document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' });
+        AOS.refresh();
+      }, 100);
+    } else if (path === "/tech") {
+      setValue(2);
+      setTimeout(() => {
+        document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' });
+        AOS.refresh();
+      }, 100);
+    }
+  }, [location.pathname]);
+
+  useEffect(() => {
+    AOS.refresh();
+  }, [value]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -219,7 +243,7 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={0}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
               {displayedProjects.map((project, index) => (
-                <div key={project.id} data-aos="fade-up" data-aos-delay={index * 100}>
+                <div key={project.id} data-aos="fade-up" data-aos-delay={index * 50}>
                   <CardProject {...project} />
                 </div>
               ))}
@@ -234,7 +258,7 @@ export default function FullWidthTabs() {
           <TabPanel value={value} index={1}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
               {displayedCertificates.map((certificate, index) => (
-                <div key={index} data-aos="fade-up" data-aos-delay={index * 100}>
+                <div key={index} data-aos="fade-up" data-aos-delay={index * 50}>
                   <Certificate ImgSertif={certificate.Img} />
                 </div>
               ))}
@@ -256,7 +280,7 @@ export default function FullWidthTabs() {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     {group.items.map((stack, idx) => (
-                      <div key={idx} data-aos="zoom-in" data-aos-delay={idx * 50}>
+                      <div key={idx} data-aos="zoom-in" data-aos-delay={idx * 20}>
                         <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
                       </div>
                     ))}
@@ -270,3 +294,5 @@ export default function FullWidthTabs() {
     </div>
   );
 }
+
+export default React.memo(FullWidthTabs);

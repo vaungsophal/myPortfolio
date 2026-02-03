@@ -57,7 +57,7 @@ const ProfileImage = memo(() => (
 
 const StatCard = memo(({ icon: Icon, value, label, description, animation }) => (
   <div data-aos={animation} data-aos-duration={1300} className="relative group">
-    <div className="relative z-10 bg-[#161616] border border-white/5 rounded-xl p-8 transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 h-full">
+    <div className="relative z-10 bg-[#161616] border border-white/5 rounded-xl p-6 sm:p-8 transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 h-full">
       <div className="flex items-center justify-between mb-6">
         <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 transition-colors group-hover:bg-accent group-hover:border-accent">
           <Icon className="w-6 h-6 text-white group-hover:text-background transition-colors" />
@@ -114,11 +114,11 @@ const AboutPage = () => {
   ], [totalProjects, totalCertificates]);
 
   return (
-    <div className="min-h-screen pb-20 text-white px-[5%] sm:px-[10%] mt-20" id="About">
+    <div className="min-h-screen pb-20 text-white px-[5%] sm:px-[10%] mt-10 sm:mt-20" id="About">
       <Header />
 
-      <div className="w-full mx-auto pt-16 relative">
-        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-16 items-center">
+      <div className="w-full mx-auto pt-10 lg:pt-16 relative">
+        <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">
               <h2 className="text-2xl md:text-3xl font-black tracking-tighter" data-aos="fade-right">
@@ -148,7 +148,7 @@ const AboutPage = () => {
           <ProfileImage />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 sm:mt-24">
           {statsData.map((stat) => (
             <StatCard key={stat.label} {...stat} />
           ))}
