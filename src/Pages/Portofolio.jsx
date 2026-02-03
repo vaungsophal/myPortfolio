@@ -146,12 +146,20 @@ const projects = [
 ];
 
 const certificates = [
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~SADZDPITNL5Z/CERTIFICATE_LANDING_PAGE~SADZDPITNL5Z.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~B0B3L1H94IUP/CERTIFICATE_LANDING_PAGE~B0B3L1H94IUP.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~19FYUQLYOZA1/CERTIFICATE_LANDING_PAGE~19FYUQLYOZA1.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~G6BCJ812GQFD/CERTIFICATE_LANDING_PAGE~G6BCJ812GQFD.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~AE8KHVKSIX5U/CERTIFICATE_LANDING_PAGE~AE8KHVKSIX5U.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~FT1VAZ7LA7KM/CERTIFICATE_LANDING_PAGE~FT1VAZ7LA7KM.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~MGOEVLUDSORI/CERTIFICATE_LANDING_PAGE~MGOEVLUDSORI.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~ELI4DFDPGW61/CERTIFICATE_LANDING_PAGE~ELI4DFDPGW61.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~LWXRJ511PJXU/CERTIFICATE_LANDING_PAGE~LWXRJ511PJXU.jpeg" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~V90JCMD2NRGQ/CERTIFICATE_LANDING_PAGE~V90JCMD2NRGQ.jpeg" },
   { Img: "/certificates/ExchangeProgram_RAS2025_SG.jpg" },
   { Img: "/certificates/AWS_Cloud_Architecting.jpg" },
   { Img: "/certificates/AWS_Cloud_Foundations.jpg" },
-  { Img: "https://github.com/sophal-vaung/me/blob/main/cert-web_page-0001.jpg?raw=true" },
-  { Img: "https://github.com/sophal-vaung/me/blob/main/cert-js_page-0001%20(1).jpg?raw=true" },
-  { Img: "https://github.com/sophal-vaung/me/blob/main/cert-frontend_page-0001.jpg?raw=true" },
 ];
 
 function FullWidthTabs() {

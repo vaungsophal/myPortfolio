@@ -102,8 +102,8 @@ const Home = () => {
 
                   {/* Card Footer Text */}
                   <div className="absolute bottom-8 left-8 z-20">
-                    <h3 className="text-xl font-bold tracking-tight text-white/70">@vaungsophal</h3>
-                    <p className="text-accent/90 text-sm font-bold tracking-widest mt-1">Available for work</p>
+                    <h3 className="text-sm font-semibold tracking-tight text-white/70">@vaungsophal</h3>
+                    <p className="text-green-500/70 text-sm font-semibold tracking-widest mt-1">Open for work</p>
                     {/* <p className="text-green-500/70 text-sm font-sm tracking-widest mt-1">Let's collaborate and build something amazing together</p> */}
                   </div>
 

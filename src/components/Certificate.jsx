@@ -37,7 +37,7 @@ const Certificate = ({ ImgSertif }) => {
 							opacity: 1,
 						},
 						"& .certificate-image": {
-							filter: "contrast(1.05) brightness(1) saturate(1.1)",
+							filter: "none",
 						},
 					},
 				}}>
@@ -88,7 +88,7 @@ const Certificate = ({ ImgSertif }) => {
 								height: "auto",
 								display: "block",
 								objectFit: "cover",
-								filter: "contrast(1.10) brightness(0.9) saturate(1.1)",
+								filter: "none",
 								transition: "filter 0.3s ease",
 							}}
 							onClick={handleOpen}
