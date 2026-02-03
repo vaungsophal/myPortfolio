@@ -6,7 +6,7 @@ import "aos/dist/aos.css";
 
 const Comment = memo(({ comment, formatDate }) => (
     <div
-        className="px-4 pt-4 pb-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group hover:shadow-lg hover:-translate-y-0.5"
+        className={`px-4 pt-4 pb-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group hover:shadow-lg hover:-translate-y-0.5 ${comment.isOptimistic ? 'opacity-50 scale-[0.98]' : 'opacity-100'}`}
     >
         <div className="flex items-start gap-3 ">
             {comment.profile_image ? (
@@ -17,7 +17,7 @@ const Comment = memo(({ comment, formatDate }) => (
                     loading="lazy"
                 />
             ) : (
-                <div className="p-2 rounded-full bg-indigo-500/20 text-indigo-400 group-hover:bg-indigo-500/30 transition-colors">
+                <div className="p-2 rounded-full bg-accent/20 text-accent group-hover:bg-accent/30 transition-colors">
                     <UserCircle2 className="w-5 h-5" />
                 </div>
             )}
@@ -84,7 +84,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     placeholder="Enter your name"
-                    className="w-full p-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all"
+                    className="w-full p-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all"
                     required
                 />
             </div>
@@ -98,7 +98,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                     value={newComment}
                     onChange={handleTextareaChange}
                     placeholder="Write your message here..."
-                    className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 transition-all resize-none min-h-[120px]"
+                    className="w-full p-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition-all resize-none min-h-[120px]"
                     required
                 />
             </div>
@@ -113,7 +113,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                             <img
                                 src={imagePreview}
                                 alt="Profile preview"
-                                className="w-16 h-16 rounded-full object-cover border-2 border-indigo-500/50"
+                                className="w-16 h-16 rounded-full object-cover border-2 border-accent/50"
                             />
                             <button
                                 type="button"
@@ -140,7 +140,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                             <button
                                 type="button"
                                 onClick={() => fileInputRef.current?.click()}
-                                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-indigo-500/20 text-indigo-400 hover:bg-indigo-500/30 transition-all border border-dashed border-indigo-500/50 hover:border-indigo-500 group"
+                                className="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-white/5 group-hover:bg-white/10 text-white/70 group-hover:text-white transition-all border border-dashed border-white/20 hover:border-accent group"
                             >
                                 <ImagePlus className="w-5 h-5 group-hover:scale-110 transition-transform" />
                                 <span>Choose Profile Photo</span>
@@ -157,7 +157,7 @@ const CommentForm = memo(({ onSubmit, isSubmitting, error }) => {
                 type="submit"
                 disabled={isSubmitting}
                 data-aos="fade-up" data-aos-duration="1000"
-                className="relative w-full h-12 bg-gradient-to-r from-[#6366f1] to-[#a855f7] rounded-xl font-medium text-white overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
+                className="relative w-full h-12 bg-accent rounded-xl font-bold text-[#0c0c0c] uppercase tracking-widest overflow-hidden group transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100 disabled:cursor-not-allowed"
             >
                 <div className="absolute inset-0 bg-white/20 translate-y-12 group-hover:translate-y-0 transition-transform duration-300" />
                 <div className="relative flex items-center justify-center gap-2">
@@ -248,25 +248,47 @@ const Komentar = () => {
         setError('');
         setIsSubmitting(true);
 
+        // Optimistic UI Update
+        const optimisticComment = {
+            id: Date.now(), // Temporary ID
+            content: newComment,
+            user_name: userName,
+            profile_image: imageFile ? URL.createObjectURL(imageFile) : null,
+            created_at: new Date().toISOString(),
+            isOptimistic: true // Flag to identify it's not confirmed yet
+        };
+
+        setComments(prev => [optimisticComment, ...prev]);
+
         try {
             let profileImageUrl = null;
             if (imageFile) {
                 profileImageUrl = await uploadImage(imageFile);
             }
 
-            const { error } = await supabase
-                .from('portfolio_comments') // Make sure this table exists
+            const { error, data } = await supabase
+                .from('portfolio_comments')
                 .insert([
                     {
                         content: newComment,
                         user_name: userName,
                         profile_image: profileImageUrl,
                     }
-                ]);
+                ])
+                .select(); // Get the actual record back
 
             if (error) throw error;
 
+            // Replace optimistic comment with actual data from DB
+            if (data && data[0]) {
+                setComments(prev =>
+                    prev.map(c => c.id === optimisticComment.id ? data[0] : c)
+                );
+            }
+
         } catch (error) {
+            // Remove optimistic comment on failure
+            setComments(prev => prev.filter(c => c.id !== optimisticComment.id));
             setError('Failed to post comment. Please try again.');
             console.error('Error adding comment: ', error);
         } finally {
@@ -295,18 +317,18 @@ const Komentar = () => {
     }, []);
 
     return (
-        <div className="w-full bg-gradient-to-b from-white/10 to-white/5 rounded-2xl overflow-hidden backdrop-blur-xl shadow-xl" data-aos="fade-up" data-aos-duration="1000">
-            <div className="p-6 border-b border-white/10" data-aos="fade-down" data-aos-duration="800">
+        <div className="w-full" data-aos="fade-up" data-aos-duration="1000">
+            <div className="p-6 sm:p-8 border-b border-white/10" data-aos="fade-down" data-aos-duration="800">
                 <div className="flex items-center gap-3">
-                    <div className="p-2 rounded-xl bg-indigo-500/20">
-                        <MessageCircle className="w-6 h-6 text-indigo-400" />
+                    <div className="p-2 rounded-xl bg-accent/20">
+                        <MessageCircle className="w-6 h-6 text-accent" />
                     </div>
-                    <h3 className="text-xl font-semibold text-white">
-                        Comments <span className="text-indigo-400">({comments.length})</span>
+                    <h3 className="text-xl font-black tracking-tight text-white">
+                        Comments <span className="text-accent">({comments.length})</span>
                     </h3>
                 </div>
             </div>
-            <div className="p-6 space-y-6">
+            <div className="p-6 sm:p-8 space-y-6">
                 {error && (
                     <div className="flex items-center gap-2 p-4 text-red-400 bg-red-500/10 border border-red-500/20 rounded-xl" data-aos="fade-in">
                         <AlertCircle className="w-5 h-5 flex-shrink-0" />
@@ -321,7 +343,7 @@ const Komentar = () => {
                 <div className="space-y-4 h-[300px] overflow-y-auto custom-scrollbar" data-aos="fade-up" data-aos-delay="200">
                     {comments.length === 0 ? (
                         <div className="text-center py-8" data-aos="fade-in">
-                            <UserCircle2 className="w-12 h-12 text-indigo-400 mx-auto mb-3 opacity-50" />
+                            <UserCircle2 className="w-12 h-12 text-accent mx-auto mb-3 opacity-50" />
                             <p className="text-gray-400">No comments yet. Start the conversation!</p>
                         </div>
                     ) : (
@@ -344,11 +366,11 @@ const Komentar = () => {
                 border-radius: 6px;
             }
             .custom-scrollbar::-webkit-scrollbar-thumb {
-                background: rgba(99, 102, 241, 0.5);
+                background: rgba(163, 255, 18, 0.5);
                 border-radius: 6px;
             }
             .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                background: rgba(99, 102, 241, 0.7);
+                background: rgba(163, 255, 18, 0.7);
             }
         `}</style>
         </div>
