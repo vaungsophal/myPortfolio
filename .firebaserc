@@ -1,8 +1,7 @@
 {
   "projects": {
     "default": "sophalvaung-dev",
-    "commentar-dev": "commentar-dev",
-    " ": "sophalvaung-dev"
+    "commentar-dev": "commentar-dev"
   },
   "targets": {
     "sophalvaung-dev": {
