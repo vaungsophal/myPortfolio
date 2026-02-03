@@ -114,7 +114,7 @@ const AboutPage = () => {
   ], [totalProjects, totalCertificates]);
 
   return (
-    <div className="min-h-screen pb-20 text-white px-[5%] sm:px-[10%] mt-10 sm:mt-20" id="About">
+    <div className="min-h-screen pb-20 text-white max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 mt-10 sm:mt-20" id="About">
       <Header />
 
       <div className="w-full mx-auto pt-10 lg:pt-16 relative">

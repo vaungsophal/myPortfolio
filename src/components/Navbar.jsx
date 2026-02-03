@@ -74,7 +74,7 @@ const Navbar = () => {
                     : "bg-transparent"
                 }`}
         >
-            <div className="mx-auto px-[5%] sm:px-[10%] lg:px-[10%]">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
                 <div className="flex items-center justify-between h-16 md:h-20">
                     {/* Logo */}
                     <div className="flex-shrink-0">
@@ -83,7 +83,7 @@ const Navbar = () => {
                             onClick={(e) => scrollToSection(e, "#Home")}
                             className="text-2xl font-black tracking-tighter text-white hover:text-accent transition-colors duration-300 flex items-center gap-1"
                         >
-                            SOPHAL<span className="text-accent text-3xl animate-pulse">.</span>
+                            Po<span className="text-accent text-3xl animate-pulse">.</span>
                         </a>
                     </div>
 
@@ -107,7 +107,7 @@ const Navbar = () => {
                                     </span>
                                     <span
                                         className={`absolute bottom-0 left-0 w-full h-[2px] bg-accent transform origin-left transition-transform duration-300 ${activeSection === item.href.substring(1)
-                                            ? "scale-x-100 shadow-[0_0_10px_rgba(163,255,18,0.5)]"
+                                            ? "scale-x-100 shadow-[0_0_10px_rgba(59, 130, 246, 0.5)]"
                                             : "scale-x-0 group-hover:scale-x-100"
                                             }`}
                                     />

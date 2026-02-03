@@ -105,7 +105,7 @@ const Certificate = ({ ImgSertif }) => {
 						left: 0,
 						right: 0,
 						bottom: 0,
-						backgroundColor: "rgba(163, 255, 18, 0.1)",
+						backgroundColor: "rgba(59, 130, 246, 0.1)",
 						backdropFilter: "blur(2px)",
 						opacity: 0,
 						transition: "all 0.3s ease",
@@ -131,14 +131,14 @@ const Certificate = ({ ImgSertif }) => {
 							sx={{
 								fontSize: 40,
 								mb: 1,
-								color: "#a3ff12",
+								color: "#3b82f6",
 								filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.2))",
 							}}
 						/>
 						<Typography
 							variant="h6"
 							sx={{
-								color: "#a3ff12",
+								color: "#3b82f6",
 								fontWeight: 600,
 								textShadow: "0 2px 4px rgba(0,0,0,0.5)",
 								letterSpacing: "2px",

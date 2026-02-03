@@ -54,7 +54,7 @@ const ContactPage = () => {
         icon: 'success',
         background: '#161616',
         color: '#ffffff',
-        confirmButtonColor: '#a3ff12',
+        confirmButtonColor: '#3b82f6',
         timer: 2000
       });
 
@@ -66,7 +66,7 @@ const ContactPage = () => {
         icon: 'error',
         background: '#161616',
         color: '#ffffff',
-        confirmButtonColor: '#a3ff12'
+        confirmButtonColor: '#3b82f6'
       });
     } finally {
       setIsSubmitting(false);
@@ -74,7 +74,7 @@ const ContactPage = () => {
   };
 
   return (
-    <div className="px-[5%] sm:px-[10%] w-full pt-10 pb-20 bg-background" id="Contact">
+    <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full pt-10 pb-20 bg-background" id="Contact">
       <div className="text-center mb-16" data-aos="fade-up">
         <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
           GET IN <span className="text-accent underline decoration-white/10 underline-offset-[12px]">TOUCH</span>
@@ -114,7 +114,7 @@ const ContactPage = () => {
               <input
                 type="text"
                 name="name"
-                placeholder="YOUR NAME"
+                placeholder="Your name"
                 value={formData.name}
                 onChange={handleChange}
                 className="w-full py-5 pl-14 pr-6 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold tracking-widest text-white focus:outline-none focus:border-accent/50 transition-all"
@@ -127,7 +127,7 @@ const ContactPage = () => {
               <input
                 type="email"
                 name="email"
-                placeholder="YOUR EMAIL"
+                placeholder="Your email"
                 value={formData.email}
                 onChange={handleChange}
                 className="w-full py-5 pl-14 pr-6 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold tracking-widest text-white focus:outline-none focus:border-accent/50 transition-all"
@@ -139,7 +139,7 @@ const ContactPage = () => {
               <MessageSquare className="absolute left-5 top-6 w-4 h-4 text-grayText group-focus-within:text-accent transition-colors" />
               <textarea
                 name="message"
-                placeholder="YOUR MESSAGE"
+                placeholder="Your message"
                 value={formData.message}
                 onChange={handleChange}
                 className="w-full h-40 py-6 pl-14 pr-6 bg-white/5 border border-white/10 rounded-2xl text-xs font-bold tracking-widest text-white focus:outline-none focus:border-accent/50 transition-all resize-none"

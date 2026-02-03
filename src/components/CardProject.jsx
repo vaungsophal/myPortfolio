@@ -12,7 +12,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
 
   return (
     <div className="group relative w-full">
-      <div className="relative overflow-hidden rounded-xl bg-[#161616] border border-white/5 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(163,255,18,0.1)]">
+      <div className="relative overflow-hidden rounded-xl bg-[#161616] border border-white/5 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.1)]">
         <div className="relative p-4 z-10">
           <div className="relative overflow-hidden rounded-lg aspect-video bg-black/20">
             <img
@@ -64,7 +64,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
               {id ? (
                 <Link
                   to={`/project/${id}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white text-xs font-bold tracking-widest hover:bg-accent hover:text-[#0c0c0c] transition-all duration-300 hover:shadow-[0_0_10px_rgba(163,255,18,0.3)] active:scale-95"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 text-white text-xs font-bold tracking-widest hover:bg-accent hover:text-[#0c0c0c] transition-all duration-300 hover:shadow-[0_0_10px_rgba(59, 130, 246, 0.3)] active:scale-95"
                 >
                   DETAILS
                   <ArrowRight className="w-3 h-3" />

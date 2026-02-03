@@ -104,6 +104,7 @@ const projects = [
     Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system and full CI/CD pipeline.",
     Link: "https://connectable.aurrasms.com/",
     TechStack: ["Next.js", "Node.js", "Tailwind", "AWS"],
+    Features: ["Role-based Access Control", "CI/CD Pipeline Integration", "Alumni Directory", "Event Management"],
   },
   {
     id: 2,
@@ -113,6 +114,7 @@ const projects = [
     Link: "https://www.screenwisekh.com",
     Github: "Private",
     TechStack: ["Vue.js", "Python", "AI"],
+    Features: ["AI-based Resume Screening", "Candidate Ranking", "Automated Interview Scheduling", "HR Dashboard"],
   },
   {
     id: 3,
@@ -121,6 +123,7 @@ const projects = [
     Description: "A powerful tool to organize and manage tasks effectively with real-time notifications.",
     Link: "https://task-manager-pol.vercel.app/",
     TechStack: ["React", "Next.js", "Firebase"],
+    Features: ["Real-time Notifications", "Task Categorization", "Drag and Drop Interface", "Team Collaboration"],
   },
   {
     id: 4,
@@ -129,6 +132,7 @@ const projects = [
     Description: "Streamlined tool for budget management and financial tracking with interactive dashboards.",
     Link: "https://github.com/vaungsophal/Expense-Tracker-App.git",
     TechStack: ["Python", "SQLite"],
+    Features: ["Expense Tracking", "Budget Planning", "Interactive Dashboards", "Financial Reports"],
   },
   {
     id: 5,
@@ -137,6 +141,7 @@ const projects = [
     Description: "Machine learning-based system for detecting and classifying DDoS attacks with real-time traffic analysis.",
     Link: "https://vaungsophal-ddos-detection.streamlit.app/",
     TechStack: ["Python", "Streamlit"],
+    Features: ["Real-time Traffic Analysis", "Attack Classification", "Machine Learning Models", "Threat Visualization"],
   }
 ];
 
@@ -158,6 +163,10 @@ function FullWidthTabs() {
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const initialItems = isMobile ? 4 : 6;
   const location = useLocation();
+
+  useEffect(() => {
+    localStorage.setItem("projects", JSON.stringify(projects));
+  }, []);
 
   useEffect(() => {
     AOS.init({ once: true, disable: "mobile" });
@@ -195,7 +204,7 @@ function FullWidthTabs() {
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
   return (
-    <div className="px-[5%] sm:px-[10%] lg:px-[10%] w-full pt-10 min-h-screen bg-background text-white" id="Portofolio">
+    <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full pt-10 min-h-screen bg-background text-white" id="Portofolio">
       <div className="text-center mb-16" data-aos="fade-up">
         <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
           WORK <span className="text-accent">GALLERY</span>
@@ -216,10 +225,10 @@ function FullWidthTabs() {
             sx={{
               minHeight: "80px",
               "& .MuiTabs-indicator": {
-                backgroundColor: "#a3ff12",
+                backgroundColor: "#3b82f6",
                 height: "4px",
                 borderRadius: "2px",
-                boxShadow: "0 0 10px rgba(163, 255, 18, 0.5)",
+                boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
               },
               "& .MuiTab-root": {
                 fontSize: { xs: "0.7rem", md: "0.8rem" },
@@ -228,8 +237,8 @@ function FullWidthTabs() {
                 textTransform: "uppercase",
                 letterSpacing: "0.2em",
                 transition: "all 0.3s",
-                "&:hover": { color: "#fff", textShadow: "0 0 10px rgba(163, 255, 18, 0.3)" },
-                "&.Mui-selected": { color: "#a3ff12", textShadow: "0 0 10px rgba(163, 255, 18, 0.5)" },
+                "&:hover": { color: "#fff", textShadow: "0 0 10px rgba(59, 130, 246, 0.3)" },
+                "&.Mui-selected": { color: "#3b82f6", textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" },
               },
             }}
           >

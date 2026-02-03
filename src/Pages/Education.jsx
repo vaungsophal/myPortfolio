@@ -51,7 +51,7 @@ const Education = () => {
 
     return (
         <section className="relative min-h-screen py-12 sm:py-24 bg-background overflow-hidden" id="Education">
-            <div className="px-[5%] sm:px-[10%] relative z-10">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
                 {/* Header Section */}
                 <div className="max-w-3xl mb-12 sm:mb-20 text-center sm:text-left">
                     <h2 className="text-2xl md:text-3xl font-black mb-6 uppercase tracking-tighter" data-aos="fade-right">

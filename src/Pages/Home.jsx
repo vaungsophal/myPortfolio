@@ -57,7 +57,7 @@ const Home = () => {
       <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
 
         {/* Header Section - Inspired by the reference image */}
-        <header className="px-[5%] sm:px-[10%] pt-6 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
+        <header className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-6 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
           <div className="text-sm font-bold tracking-widest text-white/50" data-aos="fade-right">
             SOPHAL VAUNG
           </div>
@@ -74,7 +74,7 @@ const Home = () => {
         </header>
 
         {/* Main Content */}
-        <div className="px-[5%] sm:px-[10%] min-h-[calc(100vh-100px)] flex flex-col justify-center pt-4 pb-12 sm:py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 min-h-[calc(100vh-100px)] flex flex-col justify-center pt-4 pb-12 sm:py-20 w-full">
           <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
 
             {/* Left: Image Card */}
