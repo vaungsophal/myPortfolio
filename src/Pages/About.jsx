@@ -106,7 +106,7 @@ const AboutPage = () => {
     },
     {
       icon: Globe,
-      value: "3rd",
+      value: "4th",
       label: "ACADEMIC YEAR",
       description: "Pursuing excellence in ICT at American University of Phnom Penh.",
       animation: "fade-left",
@@ -130,7 +130,7 @@ const AboutPage = () => {
             </div>
 
             <p className="text-lg text-grayText leading-relaxed max-w-xl mx-auto lg:mx-0" data-aos="fade-right" data-aos-delay="200">
-              I specialize in building high-quality digital experiences. Currently a 3rd-year
+              I specialize in building high-quality digital experiences. Currently a 4th-year
               student at AUPP, I blend technical skills with entrepreneurial thinking to
               create solutions that matter.
             </p>

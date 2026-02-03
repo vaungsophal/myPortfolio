@@ -79,9 +79,9 @@ const ContactPage = () => {
 
         {/* Dynamic Phone Number - Matching user image */}
         <div className="mt-8 mb-4">
-          <a href="tel:+85510722554" className="inline-block group">
+          <a href="tel:087264772" className="inline-block group">
             <h3 className="text-3xl sm:text-5xl font-black tracking-tighter text-dynamic-accent relative">
-              +855 10 722 554
+              087 264 772
               <span className="absolute -bottom-2 left-0 w-full h-[2px] bg-accent transition-all duration-300 group-hover:h-[4px]"></span>
             </h3>
           </a>

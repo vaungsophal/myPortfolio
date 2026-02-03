@@ -43,7 +43,7 @@ const Home = () => {
           </div>
 
           <div className="text-sm font-medium tracking-wider text-white/50 hover:text-white transition-colors cursor-pointer" data-aos="fade-left">
-            VAUNG.SOPHAL.2004@GMAIL.COM
+            sophalvaung@gmail.com
           </div>
         </header>
 
@@ -97,7 +97,7 @@ const Home = () => {
 
               <div className="flex flex-col sm:flex-row items-center gap-8 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
                 <div className="flex items-baseline gap-4">
-                  <span className="text-5xl sm:text-7xl font-black text-dynamic-accent animate-pulse-glow">3rd Year</span>
+                  <span className="text-5xl sm:text-7xl font-black text-dynamic-accent animate-pulse-glow">4th Year</span>
                   <span className="text-white/40 font-medium tracking-widest uppercase text-xs">University Student</span>
                 </div>
 
