@@ -17,7 +17,7 @@ const Education = () => {
             id: 1,
             institution: "American University of Phnom Penh",
             location: "Phnom Penh, Cambodia",
-            date: "2023 — 2027",
+            date: "2023 — 2026",
             shortDate: "Bachelor's Degree",
             degree: "B.S. in Information and Communication Technology",
             description: "Comprehensive study of IT systems, software engineering, and digital innovation with a focus on practical applications.",
