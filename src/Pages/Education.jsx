@@ -87,8 +87,8 @@ const Education = () => {
                                     </div>
 
                                     {/* Institution */}
-                                    <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                                        <div className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 transition-all duration-500">
+                                    <div className="flex flex-row gap-4 items-center">
+                                        <div className="w-14 h-14 sm:w-16 sm:h-16 flex-shrink-0 transition-all duration-500">
                                             <img
                                                 src={edu.logo}
                                                 alt={edu.institution}
@@ -97,7 +97,7 @@ const Education = () => {
                                             />
                                         </div>
                                         <div>
-                                            <h3 className="text-lg md:text-xl font-black text-white leading-tight uppercase tracking-tight">
+                                            <h3 className="text-base md:text-lg font-black text-white leading-tight uppercase tracking-tight">
                                                 {edu.institution}
                                             </h3>
                                             <div className="flex items-center gap-2 text-grayText mt-1">
@@ -111,12 +111,12 @@ const Education = () => {
                                     <div className="flex-grow space-y-4 pt-4">
                                         <div className="flex items-center gap-2 text-accent">
                                             <GraduationCap className="w-5 h-5" />
-                                            <span className="text-sm font-bold tracking-widest uppercase">{edu.shortDate}</span>
+                                            <span className="text-xs font-bold tracking-widest uppercase">{edu.shortDate}</span>
                                         </div>
-                                        <p className="text-base font-bold text-white uppercase tracking-tight">
+                                        <p className="text-sm font-bold text-white uppercase tracking-tight">
                                             {edu.degree}
                                         </p>
-                                        <p className="text-grayText text-sm leading-relaxed italic">
+                                        <p className="text-grayText text-[13px] leading-relaxed italic">
                                             "{edu.description}"
                                         </p>
                                     </div>
