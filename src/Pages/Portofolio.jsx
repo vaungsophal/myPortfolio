@@ -170,20 +170,12 @@ const projects = [
 
 
 const certificates = [
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~SADZDPITNL5Z/CERTIFICATE_LANDING_PAGE~SADZDPITNL5Z.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~B0B3L1H94IUP/CERTIFICATE_LANDING_PAGE~B0B3L1H94IUP.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~19FYUQLYOZA1/CERTIFICATE_LANDING_PAGE~19FYUQLYOZA1.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~G6BCJ812GQFD/CERTIFICATE_LANDING_PAGE~G6BCJ812GQFD.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~AE8KHVKSIX5U/CERTIFICATE_LANDING_PAGE~AE8KHVKSIX5U.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~FT1VAZ7LA7KM/CERTIFICATE_LANDING_PAGE~FT1VAZ7LA7KM.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~MGOEVLUDSORI/CERTIFICATE_LANDING_PAGE~MGOEVLUDSORI.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~ELI4DFDPGW61/CERTIFICATE_LANDING_PAGE~ELI4DFDPGW61.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~LWXRJ511PJXU/CERTIFICATE_LANDING_PAGE~LWXRJ511PJXU.jpeg" },
-  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~V90JCMD2NRGQ/CERTIFICATE_LANDING_PAGE~V90JCMD2NRGQ.jpeg" },
-  { Img: "/certificates/ExchangeProgram_RAS2025_SG.jpg" },
-  { Img: "/certificates/AWS_Cloud_Architecting.jpg" },
-  { Img: "/certificates/AWS_Cloud_Foundations.jpg" },
+  { Img: "/certificates/AWS_Cloud_Architecting.jpg", Title: "AWS Academy - Cloud Architecting" },
+  { Img: "/certificates/AWS_Cloud_Foundations.jpg", Title: "AWS Academy - Cloud Foundations" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY.jpeg", Title: "Meta Frontend Development (9 Courses)" },
+  { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~V90JCMD2NRGQ/CERTIFICATE_LANDING_PAGE~V90JCMD2NRGQ.jpeg", Title: "Web Development (4 Courses)" },
+  { Img: "https://udemy-certificate.s3.amazonaws.com/image/UC-1a738d82-949a-45bf-941e-0d44e7ae55ac.jpg?v=1726725571000", Title: "Java + Spring Boot" },
+  { Img: "/certificates/ExchangeProgram_RAS2025_SG.jpg", Title: "Exchange Program - Singapore" },
 ];
 
 function FullWidthTabs() {
@@ -313,7 +305,7 @@ function FullWidthTabs() {
               {displayedCertificates.length > 0 ? (
                 displayedCertificates.map((certificate, index) => (
                   <div key={index} data-aos="fade-up">
-                    <Certificate ImgSertif={certificate.Img} />
+                    <Certificate ImgSertif={certificate.Img} Title={certificate.Title} />
                   </div>
                 ))
               ) : (

@@ -4,7 +4,7 @@ import CloseIcon from "@mui/icons-material/Close"
 import FullscreenIcon from "@mui/icons-material/Fullscreen"
 import PictureAsPdfIcon from "@mui/icons-material/PictureAsPdf"
 
-const Certificate = ({ ImgSertif }) => {
+const Certificate = ({ ImgSertif, Title }) => {
 	const [open, setOpen] = useState(false)
 
 	const handleOpen = () => {
@@ -62,7 +62,7 @@ const Certificate = ({ ImgSertif }) => {
 							onClick={handleOpen}
 							sx={{
 								width: "100%",
-								height: "220px",
+								aspectRatio: "4/3",
 								display: "flex",
 								flexDirection: "column",
 								alignItems: "center",
@@ -85,11 +85,15 @@ const Certificate = ({ ImgSertif }) => {
 							alt="Certificate"
 							style={{
 								width: "100%",
-								height: "auto",
+								aspectRatio: "4/3",
 								display: "block",
 								objectFit: "cover",
 								filter: "none",
-								transition: "filter 0.3s ease",
+								transition: "all 0.3s ease",
+							}}
+							onError={(e) => {
+								e.target.onerror = null;
+								e.target.src = "https://via.placeholder.com/600x450?text=Certificate+Image";
 							}}
 							onClick={handleOpen}
 						/>
@@ -149,6 +153,24 @@ const Certificate = ({ ImgSertif }) => {
 					</Box>
 				</Box>
 			</Box>
+			{/* Certificate Title Below Card */}
+			{Title && (
+				<Box sx={{ mt: 2, textAlign: "center" }}>
+					<Typography
+						variant="body2"
+						sx={{
+							color: "white",
+							fontWeight: 600,
+							fontSize: "0.8rem",
+							textTransform: "uppercase",
+							letterSpacing: "1px",
+							opacity: 0.8
+						}}
+					>
+						{Title}
+					</Typography>
+				</Box>
+			)}
 
 			{/* Modal */}
 			<Modal
