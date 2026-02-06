@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink, ArrowRight } from 'lucide-react';
+import { ExternalLink, ArrowRight, Github as GithubIcon } from 'lucide-react';
+import Swal from 'sweetalert2';
 
-const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack }) => {
+const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack, Github }) => {
   const handleLiveDemo = (e) => {
     if (!ProjectLink) {
       e.preventDefault();
@@ -46,20 +47,51 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
             </div>
 
             <div className="flex items-center justify-between pt-4 border-t border-white/5">
-              {ProjectLink ? (
-                <a
-                  href={ProjectLink || "#"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={handleLiveDemo}
-                  className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-accent transition-colors duration-300 group/link"
-                >
-                  <ExternalLink className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
-                  <span className="text-xs tracking-wider">Live Demo</span>
-                </a>
-              ) : (
-                <span className="text-gray-500 text-xs font-bold tracking-wider opacity-50 cursor-not-allowed">Demo Hidden</span>
-              )}
+              <div className="flex items-center gap-4">
+                {ProjectLink ? (
+                  <a
+                    href={ProjectLink || "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={handleLiveDemo}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-accent transition-colors duration-300 group/link"
+                  >
+                    <ExternalLink className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                    <span className="text-xs tracking-wider">Live Demo</span>
+                  </a>
+                ) : (
+                  <span className="text-gray-500 text-xs font-bold tracking-wider opacity-50 cursor-not-allowed">Demo Hidden</span>
+                )}
+
+                {Github && (
+                  <a
+                    href={Github === 'Private' ? "#" : Github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => {
+                      if (Github === 'Private') {
+                        e.preventDefault();
+                        Swal.fire({
+                          icon: 'info',
+                          title: 'Source Code Private',
+                          text: 'Sorry, the source code for this project is private.',
+                          confirmButtonText: 'Understood',
+                          confirmButtonColor: '#3b82f6',
+                          background: '#161616',
+                          color: '#ffffff',
+                          customClass: {
+                            confirmButton: 'font-bold text-black'
+                          }
+                        });
+                      }
+                    }}
+                    className="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-accent transition-colors duration-300 group/link"
+                  >
+                    <GithubIcon className="w-4 h-4 transition-transform group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5" />
+                    <span className="text-xs tracking-wider">Github</span>
+                  </a>
+                )}
+              </div>
 
               {id ? (
                 <Link

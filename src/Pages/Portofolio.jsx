@@ -48,6 +48,7 @@ function TabPanel({ children, value, index, ...other }) {
       id={`full-width-tabpanel-${index}`}
       aria-labelledby={`full-width-tab-${index}`}
       {...other}
+      className={value === index ? "animate-fadeIn" : "opacity-0"}
     >
       <Box sx={{ p: { xs: 1, sm: 3 }, display: value === index ? "block" : "none" }}>
         <Typography component="div">{children}</Typography>
@@ -103,6 +104,7 @@ const projects = [
     Title: "AUPP Alumni Networking App",
     Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system and full CI/CD pipeline.",
     Link: "https://connectable.aurrasms.com/",
+    Github: "Private",
     TechStack: ["Next.js", "Node.js", "Tailwind", "AWS"],
     Features: ["Role-based Access Control", "CI/CD Pipeline Integration", "Alumni Directory", "Event Management"],
   },
@@ -118,6 +120,36 @@ const projects = [
   },
   {
     id: 3,
+    Img: "/works/badminton.png",
+    Title: "SmashIt - Badminton Booking SaaS",
+    Description: "A comprehensive SaaS platform for badminton club owners to manage multiple branches and courts seamlessly. Features a robust multi-role system.",
+    Link: "https://badmintonzone.camnexa.com",
+    Github: "Private",
+    TechStack: ["Next.js", "Node.js", "PostgreSQL", "Tailwind", "NestJS", "ABA Payway", "AWS",],
+    Features: ["Multi-branch Management", "Court Availability Grid", "Roles: Admin, Owner, Manager, Customer", "Real-time Booking System"],
+  },
+  {
+    id: 4,
+    Img: "/works/ebooksomnorng.png",
+    Title: "Ebook Somnorng",
+    Description: "A modern ebook marketplace to explore free and premium books. Features a manual admin update system and a sleek, user-friendly interface.",
+    Link: "https://ebooksomnorng.com",
+    Github: "Private",
+    TechStack: ["Next.js", "Supabase", "Node.js", "Tailwind", "NestJS", "Cloudflare", "Vercel", "Framer Motion"],
+    Features: ["Ebook Marketplace", "Manual Admin Updates", "Interactive Reader UI", "User-centric Design"],
+  },
+  {
+    id: 5,
+    Img: "/works/expense_tracker.png",
+    Title: "Financial Management System",
+    Description: "Streamlined tool for budget management and financial tracking with interactive dashboards.",
+    Link: "#",
+    Github: "https://github.com/vaungsophal/Expense-Tracker-App.git",
+    TechStack: ["Python", "SQLite"],
+    Features: ["Expense Tracking", "Budget Planning", "Interactive Dashboards", "Financial Reports"],
+  },
+  {
+    id: 6,
     Img: "https://s3-alpha.figma.com/hub/file/5133548925/6dcf8298-fd72-4aba-a023-a5298b36b990-cover.png",
     Title: "Task Manager Application",
     Description: "A powerful tool to organize and manage tasks effectively with real-time notifications.",
@@ -126,16 +158,7 @@ const projects = [
     Features: ["Real-time Notifications", "Task Categorization", "Drag and Drop Interface", "Team Collaboration"],
   },
   {
-    id: 4,
-    Img: "https://tairo.cssninja.io/img/screens/dashboards-banking-2.png",
-    Title: "Financial Management System",
-    Description: "Streamlined tool for budget management and financial tracking with interactive dashboards.",
-    Link: "https://github.com/vaungsophal/Expense-Tracker-App.git",
-    TechStack: ["Python", "SQLite"],
-    Features: ["Expense Tracking", "Budget Planning", "Interactive Dashboards", "Financial Reports"],
-  },
-  {
-    id: 5,
+    id: 7,
     Img: "https://github.com/sophal-vaung/me/blob/main/e9tzyh9m.png?raw=true",
     Title: "DDoS Detection system",
     Description: "Machine learning-based system for detecting and classifying DDoS attacks with real-time traffic analysis.",
@@ -144,6 +167,7 @@ const projects = [
     Features: ["Real-time Traffic Analysis", "Attack Classification", "Machine Learning Models", "Threat Visualization"],
   }
 ];
+
 
 const certificates = [
   { Img: "https://s3.amazonaws.com/coursera_assets/meta_images/generated/CERTIFICATE_LANDING_PAGE/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY/CERTIFICATE_LANDING_PAGE~0SRSJN14JJOY.jpeg" },
@@ -169,15 +193,20 @@ function FullWidthTabs() {
   const [value, setValue] = useState(0);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
-  const initialItems = isMobile ? 4 : 6;
+  const initialItems = 6;
   const location = useLocation();
 
   useEffect(() => {
     localStorage.setItem("projects", JSON.stringify(projects));
-  }, []);
+  }, [projects]);
 
   useEffect(() => {
-    AOS.init({ once: true, disable: "mobile" });
+    AOS.init({
+      once: true,
+      duration: 500,
+      offset: 10,
+      delay: 0,
+    });
     const path = location.pathname;
     if (path === "/portfolio") {
       setValue(0);
@@ -201,8 +230,15 @@ function FullWidthTabs() {
   }, [location.pathname]);
 
   useEffect(() => {
-    AOS.refresh();
+    const timer = setTimeout(() => {
+      AOS.refresh();
+    }, 300);
+    return () => clearTimeout(timer);
   }, [value]);
+
+  useEffect(() => {
+    AOS.refresh();
+  }, [showAllProjects, showAllCertificates]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -259,8 +295,8 @@ function FullWidthTabs() {
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-              {displayedProjects.map((project, index) => (
-                <div key={project.id} data-aos="fade-up" data-aos-delay={index * 50}>
+              {displayedProjects.map((project) => (
+                <div key={project.id} data-aos="fade-up">
                   <CardProject {...project} />
                 </div>
               ))}
@@ -274,11 +310,17 @@ function FullWidthTabs() {
 
           <TabPanel value={value} index={1}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
-              {displayedCertificates.map((certificate, index) => (
-                <div key={index} data-aos="fade-up" data-aos-delay={index * 50}>
-                  <Certificate ImgSertif={certificate.Img} />
+              {displayedCertificates.length > 0 ? (
+                displayedCertificates.map((certificate, index) => (
+                  <div key={index} data-aos="fade-up">
+                    <Certificate ImgSertif={certificate.Img} />
+                  </div>
+                ))
+              ) : (
+                <div className="col-span-full text-center py-10">
+                  <p className="text-grayText">No certificates found.</p>
                 </div>
-              ))}
+              )}
             </div>
             {certificates.length > initialItems && (
               <div className="mt-12 flex justify-center">
@@ -297,7 +339,7 @@ function FullWidthTabs() {
                   </div>
                   <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
                     {group.items.map((stack, idx) => (
-                      <div key={idx} data-aos="zoom-in" data-aos-delay={idx * 20}>
+                      <div key={idx} data-aos="zoom-in" data-aos-delay={idx * 10}>
                         <TechStackIcon TechStackIcon={stack.icon} Language={stack.language} />
                       </div>
                     ))}
