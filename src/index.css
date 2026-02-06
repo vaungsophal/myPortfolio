@@ -266,6 +266,34 @@ body {
 	animation: marquee2 25s linear infinite;
 }
 
+@keyframes marquee-reverse {
+	0% {
+		transform: translateX(0%);
+	}
+
+	100% {
+		transform: translateX(100%);
+	}
+}
+
+@keyframes marquee2-reverse {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+.animate-marquee-reverse {
+	animation: marquee-reverse 45s linear infinite;
+}
+
+.animate-marquee2-reverse {
+	animation: marquee2-reverse 45s linear infinite;
+}
+
 @keyframes fadeIn {
 	from {
 		opacity: 0;

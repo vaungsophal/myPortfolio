@@ -13,9 +13,9 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
 
   return (
     <div className="group relative w-full">
-      <div className="relative overflow-hidden rounded-xl bg-[#161616] border border-white/5 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.1)]">
-        <div className="relative p-4 z-10">
-          <div className="relative overflow-hidden rounded-lg aspect-video bg-black/20">
+      <div className="relative h-full overflow-hidden rounded-xl bg-[#161616] border border-white/5 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(59, 130, 246, 0.1)] flex flex-col">
+        <div className="relative p-4 z-10 flex flex-col h-full">
+          <div className="relative overflow-hidden rounded-lg aspect-video bg-black/20 flex-shrink-0">
             <img
               src={Img}
               alt={Title}
@@ -25,16 +25,16 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
             <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </div>
 
-          <div className="mt-6 space-y-4">
-            <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tight group-hover:text-accent transition-colors duration-300">
+          <div className="mt-6 flex flex-col flex-grow">
+            <h3 className="text-lg md:text-xl font-black text-white uppercase tracking-tight group-hover:text-accent transition-colors duration-300 line-clamp-1 h-7">
               {Title}
             </h3>
 
-            <p className="text-grayText text-sm leading-relaxed line-clamp-2 font-medium mb-4">
+            <p className="text-grayText text-sm leading-relaxed line-clamp-2 font-medium my-4 h-10">
               {Description}
             </p>
 
-            <div className="flex flex-wrap gap-2 mb-6">
+            <div className="flex flex-wrap gap-2 mb-6 h-14 overflow-hidden content-start">
               {/* Check if TechStack is available and is an array before mapping */}
               {Array.isArray(TechStack) && TechStack.map((tech, index) => (
                 <span
@@ -46,7 +46,7 @@ const CardProject = ({ Img, Title, Description, Link: ProjectLink, id, TechStack
               ))}
             </div>
 
-            <div className="flex items-center justify-between pt-4 border-t border-white/5">
+            <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
               <div className="flex items-center gap-4">
                 {ProjectLink ? (
                   <a

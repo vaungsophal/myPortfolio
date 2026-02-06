@@ -88,7 +88,7 @@ const Education = () => {
 
                                     {/* Institution */}
                                     <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                                        <div className={`${edu.institution === "National University of Singapore" ? "w-20 h-20 sm:w-32 sm:h-32" : "w-14 h-14 sm:w-16 sm:h-16"} flex-shrink-0 transition-all duration-500`}>
+                                        <div className="w-20 h-20 sm:w-24 sm:h-24 flex-shrink-0 transition-all duration-500">
                                             <img
                                                 src={edu.logo}
                                                 alt={edu.institution}

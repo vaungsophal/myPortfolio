@@ -42,7 +42,7 @@ const ProfileImage = memo(() => (
           <img
             src="/Photo.png"
             alt="Profile"
-            className="w-full h-full object-cover grayscale-[0.3] group-hover:grayscale-0 transition-all duration-700"
+            className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105 group-hover:rotate-2"
             loading="lazy"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-60"></div>

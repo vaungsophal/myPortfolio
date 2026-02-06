@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useCallback, memo } from "react"
-import { Github, Linkedin, Mail, ExternalLink, Instagram, Send, FileText } from "lucide-react"
+import React, { useState, useEffect, memo } from "react"
+import { Github, Linkedin, Send, FileText } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
@@ -40,9 +40,17 @@ const TECH_STACK = [
   { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
 ];
 
+const COMPANIES = [
+  { icon: "/experiences/atc.png", name: "ATC" },
+  { icon: "/experiences/camnexa.png", name: "Camnexa" },
+  { icon: "/experiences/screenwise.png", name: "ScreenWise" },
+  { icon: "/experiences/sps.png", name: "SPS" },
+  { icon: "/educations/AUPP.png", name: "AUPP" },
+  { icon: "/educations/NUS.png", name: "NUS" },
+];
+
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false)
-
   const [currentTech, setCurrentTech] = useState(0);
 
   useEffect(() => {
@@ -64,7 +72,7 @@ const Home = () => {
     <div className="min-h-screen bg-background text-white font-sans overflow-hidden select-none" id="Home">
       <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
 
-        {/* Header Section - Inspired by the reference image */}
+        {/* Header Section */}
         <header className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-6 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
           <div className="text-sm font-semibold tracking-widest text-white/50" data-aos="fade-right">
             SOPHAL VAUNG
@@ -90,24 +98,19 @@ const Home = () => {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
                 <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#161616] border border-white/5 shadow-2xl">
-                  {/* Background overlay for the image like in reference */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
 
-                  {/* Using the user's photo from the assets if exists, otherwise a placeholder */}
                   <img
                     src="/hero.png"
                     alt="Sophal Vaung"
-                    className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   />
 
-                  {/* Card Footer Text */}
                   <div className="absolute bottom-8 left-8 z-20">
                     <h3 className="text-sm font-semibold tracking-tight text-white/70">@vaungsophal</h3>
                     <p className="text-green-500/70 text-sm font-semibold tracking-widest mt-1">Open for work</p>
-                    {/* <p className="text-green-500/70 text-sm font-sm tracking-widest mt-1">Let's collaborate and build something amazing together</p> */}
                   </div>
 
-                  {/* Floating Icon Badges */}
                   <div className="absolute top-8 left-8 z-20 group/tech-badge cursor-pointer">
                     <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover/tech-badge:opacity-100 transition-opacity duration-500"></div>
                     <img
@@ -132,8 +135,6 @@ const Home = () => {
                 </div>
               </div>
             </div>
-
-
 
             {/* Right: Content Text */}
             <div className="w-full flex-1 space-y-8 text-center lg:text-left">
@@ -167,59 +168,96 @@ const Home = () => {
                 </a>
               </div>
 
-
-              {/* Mobile Tech Stack Marquee */}
+              {/* Mobile Marquees */}
               <div className="w-full block lg:hidden overflow-hidden py-4" data-aos="fade-up" data-aos-delay="1000">
-                <div className="flex relative w-full max-w-lg mask-gradient-x">
-                  <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
-                    {TECH_STACK.map((tech, index) => (
-                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
-                        <img
-                          src={tech.icon}
-                          alt={tech.language}
-                          className="w-full h-full object-contain"
-                        />
+                <div className="flex flex-col gap-6">
+                  {/* Tech Stack */}
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Technologies & Tools</span>
+                    <div className="flex relative w-full max-w-lg mask-gradient-x">
+                      <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
+                        {TECH_STACK.map((tech, index) => (
+                          <div key={index} className="flex items-center justify-center w-12 h-12">
+                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                      <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
+                        {TECH_STACK.map((tech, index) => (
+                          <div key={index} className="flex items-center justify-center w-12 h-12">
+                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
-                    {TECH_STACK.map((tech, index) => (
-                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
-                        <img
-                          src={tech.icon}
-                          alt={tech.language}
-                          className="w-full h-full object-contain"
-                        />
+
+                  {/* Experience */}
+                  <div className="flex flex-col gap-2">
+                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Experience & Education</span>
+                    <div className="flex relative w-full max-w-lg mask-gradient-x">
+                      <div className="flex animate-marquee-reverse whitespace-nowrap gap-12 pr-12">
+                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
+                          <div key={`${i}-${index}`} className="flex items-center justify-center w-12 h-12">
+                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain transition-all duration-300 hover:scale-110" />
+                          </div>
+                        )))}
                       </div>
-                    ))}
+                      <div className="absolute top-0 flex animate-marquee2-reverse whitespace-nowrap gap-12 pr-12">
+                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
+                          <div key={`${i}-dup-${index}`} className="flex items-center justify-center w-12 h-12">
+                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain transition-all duration-300 hover:scale-110" />
+                          </div>
+                        )))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Desktop Tech Stack Marquee */}
+              {/* Desktop Marquees */}
               <div className="w-full hidden lg:block overflow-hidden py-10" data-aos="fade-up" data-aos-delay="1000">
-                <div className="flex relative w-full max-w-lg mask-gradient-x">
-                  <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
-                    {TECH_STACK.map((tech, index) => (
-                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
-                        <img
-                          src={tech.icon}
-                          alt={tech.language}
-                          className="w-full h-full object-contain"
-                        />
+                <div className="flex flex-col gap-10">
+                  {/* Tech Stack */}
+                  <div className="flex flex-col gap-3">
+                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Technologies & Tools</span>
+                    <div className="flex relative w-full max-w-lg mask-gradient-x">
+                      <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
+                        {TECH_STACK.map((tech, index) => (
+                          <div key={index} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
+                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
+                          </div>
+                        ))}
                       </div>
-                    ))}
+                      <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
+                        {TECH_STACK.map((tech, index) => (
+                          <div key={index} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
+                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
-                    {TECH_STACK.map((tech, index) => (
-                      <div key={index} className="flex items-center justify-center w-12 h-12 transition-all duration-300 hover:scale-110 cursor-pointer">
-                        <img
-                          src={tech.icon}
-                          alt={tech.language}
-                          className="w-full h-full object-contain"
-                        />
+
+                  {/* Experience */}
+                  <div className="flex flex-col gap-3">
+                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Experience & Education</span>
+                    <div className="flex relative w-full max-w-lg mask-gradient-x">
+                      <div className="flex animate-marquee-reverse whitespace-nowrap gap-12 pr-12">
+                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
+                          <div key={`${i}-${index}`} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
+                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain" />
+                          </div>
+                        )))}
                       </div>
-                    ))}
+                      <div className="absolute top-0 flex animate-marquee2-reverse whitespace-nowrap gap-12 pr-12">
+                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
+                          <div key={`${i}-dup-${index}`} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
+                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain" />
+                          </div>
+                        )))}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -227,7 +265,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Background Decorative Text - Large subtle text at the bottom or side */}
+        {/* Background Decorative Text */}
         <div className="fixed bottom-0 right-0 p-8 opacity-[0.02] pointer-events-none select-none z-0">
           <h2 className="text-[15rem] font-black leading-none tracking-tighter">SOPHAL</h2>
         </div>
