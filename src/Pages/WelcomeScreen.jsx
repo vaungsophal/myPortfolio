@@ -46,7 +46,7 @@ const WelcomeScreen = ({ onLoadingComplete }) => {
     <AnimatePresence>
       {isLoading && (
         <motion.div
-          className="fixed inset-0 bg-[#0c0c0c] z-[9999] flex items-center justify-center overflow-hidden"
+          className="fixed inset-0 bg-[#1c1714] z-[9999] flex items-center justify-center overflow-hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit="exit"

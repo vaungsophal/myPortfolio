@@ -52,7 +52,7 @@ const ProjectStats = ({ project }) => {
   const featuresCount = project?.Features?.length || 0;
 
   return (
-    <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 md:p-4 bg-[#161616] rounded-lg overflow-hidden relative border border-white/5">
+    <div className="grid grid-cols-2 gap-3 md:gap-4 p-3 md:p-4 bg-[#2c2620] rounded-lg overflow-hidden relative border border-white/5">
       <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       <div className="relative z-10 flex items-center space-x-2 md:space-x-3 bg-white/5 p-2 md:p-3 rounded-lg border border-white/10 transition-all duration-300 hover:scale-105 hover:border-accent/20 hover:shadow-[0_0_15px_rgba(59,130,246,0.1)]">
@@ -86,7 +86,7 @@ const handleGithubClick = (githubLink) => {
       text: 'Sorry, the source code for this project is private.',
       confirmButtonText: 'Understood',
       confirmButtonColor: '#3b82f6',
-      background: '#161616',
+      background: '#2c2620',
       color: '#ffffff',
       customClass: {
         confirmButton: 'font-bold text-black'
@@ -221,8 +221,8 @@ const ProjectDetails = () => {
             </div>
 
             <div className="space-y-6 md:space-y-10 animate-slideInRight">
-              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl group bg-[#161616]">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0c] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+              <div className="relative rounded-xl overflow-hidden border border-white/10 shadow-2xl group bg-[#2c2620]">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1c1714] via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
                 <img
                   src={project.Img}
                   alt={project.Title}
@@ -232,7 +232,7 @@ const ProjectDetails = () => {
               </div>
 
               {/* Key Features */}
-              <div className="bg-[#161616] backdrop-blur-xl rounded-xl p-8 border border-white/10 space-y-6 hover:border-accent/20 transition-all duration-300 group hover:shadow-[0_0_15px_rgba(59,130,246,0.05)]">
+              <div className="bg-[#2c2620] backdrop-blur-xl rounded-xl p-8 border border-white/10 space-y-6 hover:border-accent/20 transition-all duration-300 group hover:shadow-[0_0_15px_rgba(59,130,246,0.05)]">
                 <h3 className="text-lg font-black text-white/90 flex items-center gap-3 uppercase tracking-wider">
                   <Star className="w-5 h-5 text-accent group-hover:rotate-[20deg] transition-transform duration-300" />
                   Key Features

@@ -9,7 +9,10 @@ const Navbar = () => {
     const navItems = [
         { href: "#Home", label: "HOME" },
         { href: "#About", label: "ABOUT" },
-        { href: "#Portofolio", label: "PROJECTS" },
+        { href: "#Experience", label: "EXPERIENCE" },
+        { href: "#Journey", label: "JOURNEY" },
+        { href: "#Projects", label: "PROJECTS" },
+        { href: "#Portofolio", label: "GALLERY" },
         { href: "#Contact", label: "CONTACT" },
     ];
 
@@ -58,9 +61,9 @@ const Navbar = () => {
     return (
         <nav className={`fixed w-full top-0 z-50 transition-all duration-500 ${
             isOpen
-                ? "bg-[#050505]"
+                ? "bg-[#1c1714]"
                 : scrolled
-                    ? "bg-[#050505]/80 backdrop-blur-xl border-b border-white/5"
+                    ? "bg-[#1c1714]/80 backdrop-blur-xl border-b border-white/5"
                     : "bg-transparent"
         }`}>
             <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16">
@@ -70,9 +73,9 @@ const Navbar = () => {
                     <a
                         href="#Home"
                         onClick={(e) => scrollToSection(e, "#Home")}
-                        className="font-pixel text-base text-white hover:text-accent transition-colors duration-300"
+                        className="font-pixel text-2xl text-white hover:text-accent transition-colors duration-300"
                     >
-                        sv<span className="text-accent text-2xl leading-none">.</span>
+                        sv<span className="text-accent text-4xl leading-none">.</span>
                     </a>
 
                     {/* Desktop Navigation */}
@@ -120,7 +123,7 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden fixed inset-0 bg-[#050505] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
+                className={`md:hidden fixed inset-0 bg-[#1c1714] transition-all duration-500 ease-[cubic-bezier(0.4,0,0.2,1)] ${
                     isOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-[-20px] pointer-events-none"
                 }`}
                 style={{ top: "64px", height: "calc(100vh - 64px)" }}

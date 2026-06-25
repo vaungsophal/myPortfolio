@@ -7,6 +7,9 @@ import Education from "./Pages/Education";
 import AnimatedBackground from "./components/Background";
 import Navbar from "./components/Navbar";
 import Portofolio from "./Pages/Portofolio";
+import WorkExperience from "./Pages/WorkExperience";
+import Journey from "./Pages/Journey";
+import Projects from "./Pages/Projects";
 import ContactPage from "./Pages/Contact";
 import ProjectDetails from "./components/ProjectDetail";
 import WelcomeScreen from "./Pages/WelcomeScreen";
@@ -28,6 +31,9 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
           <Home />
           <About />
           <Education />
+          <WorkExperience />
+          <Journey />
+          <Projects />
           <Portofolio />
           <ContactPage />
           <footer>
@@ -35,10 +41,10 @@ const LandingPage = ({ showWelcome, setShowWelcome }) => {
               <hr className="my-3 border-gray-400 opacity-15 sm:mx-auto lg:my-6 text-center" />
               <span className="block text-sm pb-4 text-gray-500 text-center dark:text-gray-400">
                 © 2026{" "}
-                <a href="https://flowbite.com/" className="hover:underline">
-                  Sophal
+                <a href="https://www.screenwisekh.com" target="_blank" rel="noopener noreferrer" className="hover:underline">
+                  Po
                 </a>
-                Dev.
+                {" "}Dev.
               </span>
             </center>
           </footer>
@@ -86,6 +92,18 @@ function App() {
         />
         <Route
           path="/education"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/experience"
+          element={
+            <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
+          }
+        />
+        <Route
+          path="/journey"
           element={
             <LandingPage showWelcome={showWelcome} setShowWelcome={setShowWelcome} />
           }

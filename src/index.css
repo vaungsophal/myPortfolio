@@ -10,13 +10,13 @@
 	font-family: "Google Sans", "Outfit", sans-serif;
 	scroll-behavior: smooth;
 	scrollbar-width: thin;
-	scrollbar-color: rgba(173, 255, 47, 0.3) rgba(5, 5, 5, 0.5);
+	scrollbar-color: rgba(173, 255, 47, 0.3) rgba(28, 23, 20, 0.5);
 }
 
 html,
 body {
 	overflow-x: hidden;
-	background: #050505;
+	background: #1c1714;
 	color: white;
 	scroll-behavior: smooth !important;
 }
@@ -40,7 +40,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-	background: rgba(5, 5, 5, 0.8);
+	background: rgba(28, 23, 20, 0.8);
 	border: 1px solid rgba(173, 255, 47, 0.05);
 }
 
@@ -153,9 +153,18 @@ body {
 .text-shadow-md { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); }
 .text-shadow-lg { text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); }
 
+@media (max-width: 1023px) {
+	.hero-img-mobile {
+		height: 60vh;
+		object-fit: cover;
+		object-position: center top;
+	}
+}
+
 @media (min-width: 1024px) {
 	.hero-img-layer {
 		clip-path: inset(12% 0 0 0);
 		margin-top: -12%;
+		height: auto;
 	}
 }

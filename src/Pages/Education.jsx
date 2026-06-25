@@ -50,10 +50,10 @@ const Education = () => {
     ];
 
     return (
-        <section className="relative min-h-screen py-12 sm:py-24 bg-background overflow-hidden" id="Education">
-            <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 relative z-10">
+        <section className="relative min-h-screen bg-background overflow-hidden" id="Education">
+            <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 relative z-10 pt-16 sm:pt-24 pb-16 sm:pb-24">
                 {/* Header Section */}
-                <div className="max-w-3xl mb-12 sm:mb-20 text-center sm:text-left">
+                <div className="max-w-3xl mb-16 text-center sm:text-left">
                     <h2 className="text-2xl md:text-3xl font-black mb-6 uppercase tracking-tighter" data-aos="fade-right">
                         EDUCATION <span className="text-accent">HISTORY</span>
                     </h2>
@@ -72,7 +72,7 @@ const Education = () => {
                             data-aos="fade-up"
                             data-aos-delay={index * 200}
                         >
-                            <div className="relative h-full bg-[#161616] border border-white/5 rounded-xl p-6 sm:p-10 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_20px_rgba(163,255,18,0.1)]">
+                            <div className="relative h-full bg-[#2c2620] border border-white/5 rounded-xl p-6 sm:p-8 transition-all duration-500 hover:border-accent/20 hover:shadow-[0_0_20px_rgba(163,255,18,0.1)]">
 
                                 <div className="flex flex-col h-full space-y-8">
                                     {/* Top Row */}

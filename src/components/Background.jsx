@@ -45,7 +45,7 @@ const AnimatedBackground = () => {
 	return (
 		<div className="fixed inset-0 -z-10">
 			{/* Base Dark Background */}
-			<div className="absolute inset-0 bg-[#0c0c0c]"></div>
+			<div className="absolute inset-0 bg-[#1c1714]"></div>
 
 			{/* Vertical Grid Lines - Matching the reference image */}
 			<div className="absolute inset-0 opacity-[0.03]"

@@ -6,8 +6,8 @@ export default {
 			colors: {
 				accent: '#ADFF2F',
 				secondary: '#8B5CF6',
-				background: '#050505',
-				card: '#0f0f0f',
+				background: '#1c1714',
+				card: '#251f1b',
 				grayText: '#888888',
 			},
 			fontFamily: {

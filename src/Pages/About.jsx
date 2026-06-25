@@ -5,7 +5,7 @@ import 'aos/dist/aos.css'
 
 // Memoized Components
 const Header = memo(() => (
-  <div className="text-center lg:mb-8 mb-2 px-[5%]">
+  <div className="text-center mb-12 sm:mb-16 px-[5%]">
     <p
       className="text-secondary italic text-sm font-medium mb-3 tracking-wide"
       data-aos="fade-up"
@@ -64,7 +64,7 @@ const ProfileImage = memo(() => (
 
 const StatCard = memo(({ icon: Icon, value, label, description, animation }) => (
   <div data-aos={animation} data-aos-duration={1300} className="relative group">
-    <div className="relative z-10 bg-[#161616] border border-white/5 rounded-xl p-6 sm:p-8 transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 h-full">
+    <div className="relative z-10 bg-[#2c2620] border border-white/5 rounded-xl p-6 sm:p-8 transition-all duration-500 hover:border-accent/30 hover:-translate-y-2 h-full">
       <div className="flex items-center justify-between mb-6">
         <div className="w-14 h-14 rounded-xl flex items-center justify-center bg-white/5 border border-white/10 transition-colors group-hover:bg-accent group-hover:border-accent">
           <Icon className="w-6 h-6 text-white group-hover:text-background transition-colors" />
@@ -121,10 +121,10 @@ const AboutPage = () => {
   ], [totalProjects, totalCertificates]);
 
   return (
-    <div className="min-h-screen pb-20 text-white max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 mt-10 sm:mt-20" id="About">
+    <div className="min-h-screen text-white max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-16 sm:pt-24 pb-16 sm:pb-24" id="About">
       <Header />
 
-      <div className="w-full mx-auto pt-10 lg:pt-16 relative">
+      <div className="w-full mx-auto relative">
         <div className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           <div className="space-y-8 text-center lg:text-left">
             <div className="space-y-4">

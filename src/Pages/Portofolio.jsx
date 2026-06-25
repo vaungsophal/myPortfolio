@@ -7,12 +7,11 @@ import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import CardProject from "../components/CardProject";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Certificate from "../components/Certificate";
 import TechStackIcon from "../components/TechStackIcon";
-import { Code, Award, Boxes } from "lucide-react";
+import { Award, Boxes } from "lucide-react";
 import { useLocation } from "react-router-dom";
 import { useMediaQuery } from "@mui/material";
 
@@ -20,7 +19,7 @@ import { useMediaQuery } from "@mui/material";
 const ToggleButton = ({ onClick, isShowingMore }) => (
   <button
     onClick={onClick}
-    className="px-4 py-2 bg-[#161616] border border-white/10 hover:border-accent text-white text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-md hover:scale-105 flex items-center gap-3 group"
+    className="px-4 py-2 bg-[#2c2620] border border-white/10 hover:border-accent text-white text-xs font-black uppercase tracking-[0.2em] transition-all duration-300 rounded-md hover:scale-105 flex items-center gap-3 group"
   >
     {isShowingMore ? "SEE LESS" : "SEE MORE"}
     <svg
@@ -183,70 +182,41 @@ function FullWidthTabs() {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const [value, setValue] = useState(0);
-  const [showAllProjects, setShowAllProjects] = useState(false);
   const [showAllCertificates, setShowAllCertificates] = useState(false);
   const initialItems = 6;
   const location = useLocation();
 
   useEffect(() => {
-    localStorage.setItem("projects", JSON.stringify(projects));
-  }, [projects]);
-
-  useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 500,
-      offset: 10,
-      delay: 0,
-    });
+    AOS.init({ once: true, duration: 500, offset: 10, delay: 0 });
     const path = location.pathname;
-    if (path === "/portfolio") {
+    if (path === "/certificate") {
       setValue(0);
-      setTimeout(() => {
-        document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' });
-        AOS.refresh();
-      }, 100);
-    } else if (path === "/certificate") {
-      setValue(1);
-      setTimeout(() => {
-        document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' });
-        AOS.refresh();
-      }, 100);
+      setTimeout(() => { document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' }); AOS.refresh(); }, 100);
     } else if (path === "/tech") {
-      setValue(2);
-      setTimeout(() => {
-        document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' });
-        AOS.refresh();
-      }, 100);
+      setValue(1);
+      setTimeout(() => { document.getElementById("Portofolio").scrollIntoView({ behavior: 'smooth' }); AOS.refresh(); }, 100);
     }
   }, [location.pathname]);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      AOS.refresh();
-    }, 300);
+    const timer = setTimeout(() => AOS.refresh(), 300);
     return () => clearTimeout(timer);
   }, [value]);
 
-  useEffect(() => {
-    AOS.refresh();
-  }, [showAllProjects, showAllCertificates]);
+  useEffect(() => { AOS.refresh(); }, [showAllCertificates]);
 
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+  const handleChange = (event, newValue) => setValue(newValue);
 
-  const displayedProjects = showAllProjects ? projects : projects.slice(0, initialItems);
   const displayedCertificates = showAllCertificates ? certificates : certificates.slice(0, initialItems);
 
   return (
-    <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full pt-10 min-h-screen bg-background text-white" id="Portofolio">
+    <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 w-full pt-16 sm:pt-24 pb-16 sm:pb-24 min-h-screen text-white" id="Portofolio">
       <div className="text-center mb-16" data-aos="fade-up">
         <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tighter mb-4">
-          WORK <span className="text-accent">GALLERY</span>
+          CREDENTIALS <span className="text-accent">&amp; STACK</span>
         </h2>
-        <p className="text-grayText max-w-xl mx-auto text-sm md:text-base font-bold uppercase tracking-widest text-xs">
-          Crafting excellence through code and research
+        <p className="text-grayText max-w-xl mx-auto text-sm font-bold uppercase tracking-widest">
+          Certifications earned and technologies mastered
         </p>
       </div>
 
@@ -261,10 +231,10 @@ function FullWidthTabs() {
             sx={{
               minHeight: "80px",
               "& .MuiTabs-indicator": {
-                backgroundColor: "#3b82f6",
+                backgroundColor: "#ADFF2F",
                 height: "4px",
                 borderRadius: "2px",
-                boxShadow: "0 0 10px rgba(59, 130, 246, 0.5)",
+                boxShadow: "0 0 10px rgba(173, 255, 47, 0.5)",
               },
               "& .MuiTab-root": {
                 fontSize: { xs: "0.7rem", md: "0.8rem" },
@@ -273,12 +243,11 @@ function FullWidthTabs() {
                 textTransform: "uppercase",
                 letterSpacing: "0.2em",
                 transition: "all 0.3s",
-                "&:hover": { color: "#fff", textShadow: "0 0 10px rgba(59, 130, 246, 0.3)" },
-                "&.Mui-selected": { color: "#3b82f6", textShadow: "0 0 10px rgba(59, 130, 246, 0.5)" },
+                "&:hover": { color: "#fff", textShadow: "0 0 10px rgba(173, 255, 47, 0.3)" },
+                "&.Mui-selected": { color: "#ADFF2F", textShadow: "0 0 10px rgba(173, 255, 47, 0.5)" },
               },
             }}
           >
-            <Tab icon={<Code className="mb-1 w-4 h-4" />} label="PROJECTS" />
             <Tab icon={<Award className="mb-1 w-4 h-4" />} label="CERTIFICATES" />
             <Tab icon={<Boxes className="mb-1 w-4 h-4" />} label="TECH STACK" />
           </Tabs>
@@ -286,21 +255,6 @@ function FullWidthTabs() {
 
         <SwipeableViews axis={theme.direction === "rtl" ? "x-reverse" : "x"} index={value} onChangeIndex={setValue}>
           <TabPanel value={value} index={0}>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-8">
-              {displayedProjects.map((project) => (
-                <div key={project.id} data-aos="fade-up" className="flex">
-                  <CardProject {...project} />
-                </div>
-              ))}
-            </div>
-            {projects.length > initialItems && (
-              <div className="mt-12 flex justify-center">
-                <ToggleButton onClick={() => setShowAllProjects(!showAllProjects)} isShowingMore={showAllProjects} />
-              </div>
-            )}
-          </TabPanel>
-
-          <TabPanel value={value} index={1}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8">
               {displayedCertificates.length > 0 ? (
                 displayedCertificates.map((certificate, index) => (
@@ -321,7 +275,7 @@ function FullWidthTabs() {
             )}
           </TabPanel>
 
-          <TabPanel value={value} index={2}>
+          <TabPanel value={value} index={1}>
             <div className="space-y-16 pt-12 pb-20">
               {techStacks.map((group, index) => (
                 <div key={index} className="space-y-8">
