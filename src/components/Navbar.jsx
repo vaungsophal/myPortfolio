@@ -7,7 +7,7 @@ const Navbar = () => {
     const [activeSection, setActiveSection] = useState("Home");
 
     const navItems = [
-        { href: "#Home", label: "HOME" },
+        { href: "#Home", label: "HOME", mobileOnly: true },
         { href: "#About", label: "ABOUT" },
         { href: "#Experience", label: "EXPERIENCE" },
         { href: "#Journey", label: "JOURNEY" },
@@ -80,7 +80,7 @@ const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-8">
-                        {navItems.map((item) => (
+                        {navItems.filter(item => !item.mobileOnly).map((item) => (
                             <a
                                 key={item.label}
                                 href={item.href}

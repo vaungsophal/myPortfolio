@@ -10,7 +10,7 @@ const projects = [
     Img: "/works/AUPPNetworkingApp.png",
     Title: "AUPP Alumni Networking App",
     Description: "Developed an API-first Alumni Networking platform for AUPP. Features a robust role-based permission system and full CI/CD pipeline on AWS.",
-    Link: "https://connectable.aurrasms.com/",
+    Link: "https://alumniconnect.aupp.edu.kh/login",
     Github: "Private",
     TechStack: ["Next.js", "Node.js", "Tailwind", "AWS"],
     Features: ["Role-based Access Control", "CI/CD Pipeline", "Alumni Directory", "Event Management"],

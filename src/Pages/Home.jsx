@@ -37,30 +37,106 @@ const Home = () => {
       />
       <div className="absolute inset-0 bg-[#2c2620]/60" />
 
-      {/* Foreground portrait */}
-      <div
-        className="absolute left-0 right-0 z-20 pointer-events-none"
-        style={{ top: '0' }}
-        data-aos="fade-up"
-        data-aos-duration="1000"
-        data-aos-delay="300"
-      >
-        <img
-          src="/hero-me.png"
-          alt="Sophal Vaung"
-          className="hero-img-layer hero-img-mobile"
-          style={{ width: '100%', display: 'block', opacity: 0.92 }}
-        />
+      {/* ── DESKTOP: single unified container — image + name + panels move together ── */}
+      <div className={`hidden lg:block absolute inset-0 z-20 transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="relative h-full max-w-7xl mx-auto px-16">
+
+          {/* Portrait image */}
+          <img
+            src="/hero-me.png"
+            alt="Sophal Vaung"
+            className="hero-img-layer"
+            style={{ width: '100%', display: 'block', opacity: 0.92 }}
+            data-aos="fade-up"
+            data-aos-duration="1000"
+            data-aos-delay="300"
+          />
+
+          {/* Name — pinned over image */}
+          <div className="absolute top-32 xl:top-36 left-0 right-0 text-center overflow-hidden">
+            <h1
+              className="font-pixel text-white uppercase"
+              style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400 }}
+              data-aos="fade-down"
+              data-aos-duration="1000"
+            >
+              SOPHAL VAUNG
+            </h1>
+          </div>
+
+          {/* Left: Skills + Social */}
+          <div className="absolute bottom-16 left-0 space-y-4" data-aos="fade-right" data-aos-delay="400">
+            {SKILLS.map((skill, i) => (
+              <div key={i} className="flex items-center gap-3">
+                <span className="text-accent font-black text-xl leading-none">=&gt;</span>
+                <span className="text-white font-semibold text-lg">{skill}</span>
+              </div>
+            ))}
+            <div className="flex items-center gap-5 pt-5">
+              <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer"
+                 className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
+                <Send className="w-5 h-5" />
+              </a>
+              <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer"
+                 className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer"
+                 className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right: Description + CTA */}
+          <div className="absolute bottom-16 right-0 text-right max-w-[280px]" data-aos="fade-left" data-aos-delay="400">
+            <p className="text-white/80 text-xs font-bold uppercase tracking-widest leading-[2.2]">
+              FULL STACK DEVELOPER WITH 2+ YEARS OF EXPERIENCE IN DEVELOPING ROBUST WEB APPLICATIONS FROM FRONT-END TO BACK-END
+            </p>
+            <div className="flex items-center justify-end gap-3 mt-8">
+              <button
+                className="w-12 h-12 rounded-full border border-accent/60 bg-accent/10 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-all duration-300 group cursor-pointer"
+                onClick={scrollToContact}
+              >
+                <Zap className="w-5 h-5 text-accent group-hover:text-[#1c1714] transition-colors" />
+              </button>
+              <a
+                href="#Contact"
+                onClick={scrollToContact}
+                className="bg-accent text-[#1c1714] font-black text-sm px-8 py-4 rounded-full uppercase hover:scale-105 hover:shadow-[0_0_30px_rgba(173,255,47,0.5)] transition-all duration-300"
+              >
+                HIRE ME
+              </a>
+            </div>
+          </div>
+
+        </div>
       </div>
 
-      {/* UI content (topmost layer) */}
-      <div className={`relative z-30 min-h-screen flex flex-col transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+      {/* ── MOBILE LAYOUT ── */}
+      <div className={`relative z-30 min-h-screen flex flex-col lg:hidden transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
 
-        {/* Giant Pixel Name */}
+        {/* Mobile: foreground portrait */}
+        <div
+          className="absolute left-0 right-0 z-20 pointer-events-none"
+          style={{ top: 0 }}
+          data-aos="fade-up"
+          data-aos-duration="1000"
+          data-aos-delay="300"
+        >
+          <img
+            src="/hero-me.png"
+            alt="Sophal Vaung"
+            className="hero-img-mobile"
+            style={{ width: '100%', display: 'block', opacity: 0.92 }}
+          />
+        </div>
+
+        {/* Mobile: name */}
         <div className="text-center pt-32 md:pt-36 pb-0 overflow-hidden px-2">
           <h1
             className="font-pixel text-white uppercase"
-            style={{ fontSize: 'clamp(1.6rem, 5.5vw, 4.6rem)', lineHeight: '1.5', fontWeight: 400 }}
+            style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400, textShadow: '0 0 30px rgba(255,255,255,0.6), 0 2px 12px rgba(0,0,0,0.8)' }}
             data-aos="fade-down"
             data-aos-duration="1000"
           >
@@ -68,9 +144,9 @@ const Home = () => {
           </h1>
         </div>
 
-        {/* ── Mobile: logos pinned exactly at the image bottom (60vh) ── */}
+        {/* Mobile: logos pinned at image bottom */}
         <div
-          className="lg:hidden absolute left-0 right-0 z-30 pointer-events-none select-none"
+          className="absolute left-0 right-0 z-30 pointer-events-none select-none"
           style={{ top: '60vh' }}
         >
           <div className="overflow-hidden py-3 border-y border-white/15">
@@ -90,9 +166,9 @@ const Home = () => {
           </div>
         </div>
 
-        {/* ── Mobile: bouncing scroll-down button, just above logo line ── */}
+        {/* Mobile: bouncing scroll button */}
         <div
-          className="lg:hidden absolute left-1/2 -translate-x-1/2 z-40"
+          className="absolute left-1/2 -translate-x-1/2 z-40"
           style={{ top: 'calc(60vh + 90px)' }}
         >
           <button
@@ -106,69 +182,12 @@ const Home = () => {
           </button>
         </div>
 
+        {/* Mobile: bottom content */}
         <div className="flex-1 relative">
-
-          {/* Desktop: left / right panels pinned to bottom */}
-          <div className="hidden lg:flex items-end justify-between px-10 xl:px-20 pb-16 absolute inset-0">
-
-            {/* Left: Skills + Social */}
-            <div className="space-y-4" data-aos="fade-right" data-aos-delay="400">
-              {SKILLS.map((skill, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span className="text-accent font-black text-xl leading-none">=&gt;</span>
-                  <span className="text-white font-semibold text-lg">{skill}</span>
-                </div>
-              ))}
-
-              <div className="flex items-center gap-5 pt-5">
-                <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer"
-                   className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
-                  <Send className="w-5 h-5" />
-                </a>
-                <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer"
-                   className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
-                  <Github className="w-5 h-5" />
-                </a>
-                <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer"
-                   className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
-                  <Linkedin className="w-5 h-5" />
-                </a>
-              </div>
-            </div>
-
-            {/* Right: Description + CTA */}
-            <div className="text-right max-w-[280px]" data-aos="fade-left" data-aos-delay="400">
-              <p className="text-white/80 text-xs font-bold uppercase tracking-widest leading-[2.2]">
-                FULL STACK DEVELOPER WITH 2+ YEARS OF EXPERIENCE IN DEVELOPING ROBUST WEB APPLICATIONS FROM FRONT-END TO BACK-END
-              </p>
-              <div className="flex items-center justify-end gap-3 mt-8">
-                <button
-                  className="w-12 h-12 rounded-full border border-accent/60 bg-accent/10 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-all duration-300 group cursor-pointer"
-                  onClick={scrollToContact}
-                >
-                  <Zap className="w-5 h-5 text-accent group-hover:text-[#1c1714] transition-colors" />
-                </button>
-                <a
-                  href="#Contact"
-                  onClick={scrollToContact}
-                  className="bg-accent text-[#1c1714] font-black text-sm px-8 py-4 rounded-full uppercase hover:scale-105 hover:shadow-[0_0_30px_rgba(173,255,47,0.5)] transition-all duration-300"
-                >
-                  HIRE ME
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Desktop spacer */}
-          <div className="hidden lg:block min-h-[65vh]" />
-
-          {/* ── Mobile Layout: content pinned to bottom ── */}
-          <div className="lg:hidden absolute bottom-0 left-0 right-0 z-10">
+          <div className="absolute bottom-0 left-0 right-0 z-10">
             <div className="absolute inset-0 bg-gradient-to-t from-[#2c2620] via-[#2c2620]/80 to-transparent pointer-events-none" />
-
             <div className="relative px-6 pb-10 pt-16 space-y-4">
 
-              {/* Skills — inline on mobile */}
               <div className="flex items-center flex-wrap gap-x-3 gap-y-1" data-aos="fade-up" data-aos-delay="150">
                 {SKILLS.map((skill, i) => (
                   <React.Fragment key={i}>
@@ -180,15 +199,10 @@ const Home = () => {
                 ))}
               </div>
 
-              {/* Description */}
-              <p
-                className="text-white/60 text-[11px] font-bold uppercase tracking-widest leading-[2]"
-                data-aos="fade-up" data-aos-delay="200"
-              >
+              <p className="text-white/60 text-[11px] font-bold uppercase tracking-widest leading-[2]" data-aos="fade-up" data-aos-delay="200">
                 Full Stack Developer · 4+ Years building robust web apps.
               </p>
 
-              {/* Social + CTA */}
               <div className="flex items-center justify-between" data-aos="fade-up" data-aos-delay="250">
                 <div className="flex items-center gap-5">
                   <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer"
@@ -212,10 +226,12 @@ const Home = () => {
                   HIRE ME
                 </a>
               </div>
+
             </div>
           </div>
         </div>
       </div>
+
     </div>
   )
 }

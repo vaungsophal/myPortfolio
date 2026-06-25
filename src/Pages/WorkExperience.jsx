@@ -34,7 +34,7 @@ const experiences = [
     period: "Jan 2026 — March 2026",
     color: "border-blue-400/30",
     dot: "bg-blue-400 shadow-[0_0_14px_rgba(96,165,250,0.7)]",
-    link: "https://connectable.aurrasms.com/",
+    link: "https://alumniconnect.aupp.edu.kh/login",
     description:
       "Collaborated with a four-member team to build a community web application for AUPP students with six role-based access levels. Won 1st place in the university competition.",
     highlights: [
