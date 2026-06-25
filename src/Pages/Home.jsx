@@ -56,7 +56,7 @@ const Home = () => {
           <div className="absolute top-32 xl:top-36 left-0 right-0 text-center overflow-hidden">
             <h1
               className="font-pixel text-white uppercase"
-              style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400 }}
+              style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400, opacity: 0.75 }}
               data-aos="fade-down"
               data-aos-duration="1000"
             >
@@ -136,7 +136,7 @@ const Home = () => {
         <div className="text-center pt-32 md:pt-36 pb-0 overflow-hidden px-2">
           <h1
             className="font-pixel text-white uppercase"
-            style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400, textShadow: '0 0 30px rgba(255,255,255,0.6), 0 2px 12px rgba(0,0,0,0.8)' }}
+            style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400, opacity: 0.75 }}
             data-aos="fade-down"
             data-aos-duration="1000"
           >
