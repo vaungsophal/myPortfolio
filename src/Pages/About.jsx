@@ -6,17 +6,24 @@ import 'aos/dist/aos.css'
 // Memoized Components
 const Header = memo(() => (
   <div className="text-center lg:mb-8 mb-2 px-[5%]">
+    <p
+      className="text-secondary italic text-sm font-medium mb-3 tracking-wide"
+      data-aos="fade-up"
+      data-aos-duration="500"
+    >
+      ( About Me )
+    </p>
     <div className="inline-block relative group">
       <h2
         className="text-2xl md:text-3xl font-bold text-white uppercase tracking-tighter"
         data-aos="zoom-in-up"
         data-aos-duration="600"
       >
-        About <span className="text-accent">Me</span>
+        I'm a <span className="text-accent">Software Developer</span>
       </h2>
     </div>
     <p
-      className="mt-4 text-grayText max-w-2xl mx-auto text-base sm:text-lg flex items-center justify-center gap-3 tracking-widest uppercase font-bold text-xs"
+      className="mt-4 text-grayText max-w-2xl mx-auto flex items-center justify-center gap-3 tracking-widest uppercase font-bold text-xs"
       data-aos="zoom-in-up"
       data-aos-duration="800"
     >

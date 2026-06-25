@@ -192,6 +192,7 @@ const Komentar = () => {
     }, []);
 
     const fetchComments = useCallback(async () => {
+        if (!supabase) return;
         try {
             const { data, error } = await supabase
                 .from('portfolio_comments')
@@ -206,6 +207,7 @@ const Komentar = () => {
     }, []);
 
     useEffect(() => {
+        if (!supabase) return;
         fetchComments();
 
         // Realtime subscription
@@ -367,11 +369,11 @@ const Komentar = () => {
                 border-radius: 6px;
             }
             .custom-scrollbar::-webkit-scrollbar-thumb {
-                background: rgba(59, 130, 246, 0.5);
+                background: rgba(173, 255, 47, 0.4);
                 border-radius: 6px;
             }
             .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-                background: rgba(59, 130, 246, 0.7);
+                background: rgba(173, 255, 47, 0.6);
             }
         `}</style>
         </div>

@@ -1,277 +1,200 @@
 import React, { useState, useEffect, memo } from "react"
-import { Github, Linkedin, Send, FileText } from "lucide-react"
+import { Github, Linkedin, Send, Zap } from "lucide-react"
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 
-// Memoized Components
-const SocialIcon = memo(({ Icon, href }) => (
-  <a
-    href={href}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="p-2.5 rounded-full border border-white/10 bg-white/5 hover:bg-accent hover:border-accent group transition-all duration-300"
-  >
-    <Icon className="w-4 h-4 text-white group-hover:text-background transition-colors" />
-  </a>
-));
-
-const TECH_STACK = [
-  { icon: "tech/html.svg", language: "HTML" },
-  { icon: "tech/css.svg", language: "CSS" },
-  { icon: "tech/javascript.svg", language: "JavaScript" },
-  { icon: "tech/typescript.svg", language: "TypeScript" },
-  { icon: "tech/reactjs.svg", language: "ReactJS" },
-  { icon: "tech/nextjss.png", language: "Next JS" },
-  { icon: "tech/vite.svg", language: "Vite" },
-  { icon: "tech/tailwind.svg", language: "Tailwind CSS" },
-  { icon: "tech/bootstrap.svg", language: "Bootstrap" },
-  { icon: "tech/MUI.svg", language: "Material UI" },
-  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", language: "Vue.js" },
-  { icon: "tech/nodejs.svg", language: "Node JS" },
-  { icon: "tech/python.png", language: "Python" },
-  { icon: "https://favtutor.com/resources/images/uploads/Java_logo.png", language: "Java" },
-  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", language: "MySQL" },
-  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", language: "PostgreSQL" },
-  { icon: "tech/firebase.svg", language: "Firebase" },
-  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg", language: "AWS" },
-  { icon: "tech/vercel.svg", language: "Vercel" },
-  { icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", language: "Git" },
-  { icon: "https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg", language: "Postman" },
-  { icon: "https://www.pngall.com/wp-content/uploads/13/Figma-Logo-PNG-Photo.png", language: "Figma" },
-];
-
-const COMPANIES = [
-  { icon: "/experiences/atc.png", name: "ATC" },
-  { icon: "/experiences/camnexa.png", name: "Camnexa" },
-  { icon: "/experiences/screenwise.png", name: "ScreenWise" },
-  { icon: "/experiences/sps.png", name: "SPS" },
-  { icon: "/educations/AUPP.png", name: "AUPP" },
-  { icon: "/educations/NUS.png", name: "NUS" },
-];
+const SKILLS = [
+  'Frontend Development',
+  'Web Development',
+  'Full Stack Apps',
+]
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false)
-  const [currentTech, setCurrentTech] = useState(0);
 
   useEffect(() => {
-    AOS.init({
-      once: true,
-      duration: 1000,
-      disable: "mobile",
-    });
-    setIsLoaded(true);
+    AOS.init({ once: true, duration: 800, disable: false })
+    setIsLoaded(true)
+  }, [])
 
-    const interval = setInterval(() => {
-      setCurrentTech((prev) => (prev + 1) % TECH_STACK.length);
-    }, 2000);
-
-    return () => clearInterval(interval);
-  }, []);
+  const scrollToContact = (e) => {
+    e.preventDefault()
+    document.querySelector('#Contact')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   return (
-    <div className="min-h-screen bg-background text-white font-sans overflow-hidden select-none" id="Home">
-      <div className={`relative z-10 transition-all duration-1000 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
+    <div className="min-h-[120vh] text-white overflow-hidden select-none relative" id="Home">
 
-        {/* Header Section */}
-        <header className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-6 sm:pt-12 flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
-          <div className="text-sm font-semibold tracking-widest text-white/50" data-aos="fade-right">
+      {/* ── Layer 1: same image as full-screen background (blurred + dark) ── */}
+      <img
+        src="/hero-me.png"
+        alt=""
+        aria-hidden="true"
+        className="absolute inset-0 w-full h-full object-cover object-center"
+        style={{ filter: 'blur(10px) brightness(0.12)', transform: 'scale(1.05)' }}
+      />
+      {/* Extra dark overlay */}
+      <div className="absolute inset-0 bg-black/75" />
+
+      {/* ── Layer 2: holographic rainbow glow (behind the portrait frame) ── */}
+      <div
+        className="absolute inset-0 z-10 pointer-events-none flex items-center justify-center"
+      >
+        <div
+          style={{
+            width: '500px',
+            height: '420px',
+            background: 'conic-gradient(from 0deg at 50% 50%, #ff6b6b, #ff9e3d, #ffd93d, #9bff6b, #4ecdc4, #4e9bff, #a78bfa, #f72585, #ff6b6b)',
+            filter: 'blur(60px)',
+            opacity: 0.72,
+            transform: 'scaleX(1.5) scaleY(0.65)',
+            marginTop: '8vh',
+          }}
+        />
+      </div>
+
+      {/* ── Layer 3: same image, natural aspect ratio, pops up — */}
+      <div
+        className="absolute left-0 right-0 z-20 pointer-events-none"
+        style={{ top: '0' }}
+        data-aos="fade-up"
+        data-aos-duration="1000"
+        data-aos-delay="300"
+      >
+        <img
+          src="/hero-me.png"
+          alt="Sophal Vaung"
+          className="hero-img-layer"
+          style={{
+            width: '100%',
+            height: 'auto',
+            display: 'block',
+            opacity: 0.6,
+          }}
+        />
+      </div>
+
+      {/* ── UI content (topmost layer) ── */}
+      <div className={`relative z-30 min-h-screen flex flex-col transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+
+        {/* Giant Pixel Name */}
+        <div className="text-center pt-20 md:pt-24 pb-0 overflow-hidden px-2">
+          <h1
+            className="font-pixel text-white uppercase"
+            style={{ fontSize: 'clamp(0.9rem, 3vw, 3.8rem)', lineHeight: '1.5', fontWeight: 400 }}
+            data-aos="fade-down"
+            data-aos-duration="1000"
+          >
             SOPHAL VAUNG
-          </div>
-
-          <div className="flex items-center gap-3" data-aos="fade-down" data-aos-delay="200">
-            <SocialIcon Icon={Send} href="https://t.me/pol_g0o" />
-            <SocialIcon Icon={Github} href="https://github.com/vaungsophal" />
-            <SocialIcon Icon={Linkedin} href="https://www.linkedin.com/in/sophal-vaung/" />
-          </div>
-
-          <div className="text-sm font-normal tracking-wider text-gray-400 hover:text-white transition-colors cursor-pointer text-shadow-sm" data-aos="fade-left">
-            2023451VAUNG@AUPP.EDU.KH
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 min-h-[calc(100vh-100px)] flex flex-col justify-center pt-4 pb-12 sm:py-20 w-full">
-          <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-24">
-
-            {/* Left: Image Card */}
-            <div className="w-full lg:w-[450px]" data-aos="fade-right" data-aos-delay="400">
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-accent/20 rounded-xl blur-xl opacity-0 group-hover:opacity-100 transition duration-700"></div>
-                <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#161616] border border-white/5 shadow-2xl">
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10"></div>
-
-                  <img
-                    src="/hero.png"
-                    alt="Sophal Vaung"
-                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
-                  />
-
-                  <div className="absolute bottom-8 left-8 z-20">
-                    <h3 className="text-sm font-semibold tracking-tight text-white/70">@vaungsophal</h3>
-                    <p className="text-green-500/70 text-sm font-semibold tracking-widest mt-1">Open for work</p>
-                  </div>
-
-                  <div className="absolute top-8 left-8 z-20 group/tech-badge cursor-pointer">
-                    <div className="absolute inset-0 bg-accent/20 blur-xl opacity-0 group-hover/tech-badge:opacity-100 transition-opacity duration-500"></div>
-                    <img
-                      key={currentTech}
-                      src={TECH_STACK[currentTech].icon}
-                      alt={TECH_STACK[currentTech].language}
-                      className="relative z-10 w-10 h-10 md:w-12 md:h-12 object-contain drop-shadow-2xl animate-fade-in-up transition-all duration-500 group-hover/tech-badge:scale-110 group-hover/tech-badge:brightness-125"
-                    />
-                  </div>
-
-                  <div className="absolute bottom-1/2 right-6 translate-y-1/2 z-20 flex flex-col gap-4">
-                    <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300 group">
-                      <Github className="w-5 h-5 text-white/50 group-hover:text-white transition-colors" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:border-[#0077b5]/20 transition-all duration-300 group">
-                      <Linkedin className="w-5 h-5 text-[#0077b5]/50 group-hover:text-[#0077b5] transition-colors" />
-                    </a>
-                    <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer" className="p-3 bg-black/40 backdrop-blur-md rounded-lg border border-white/10 hover:border-[#229ED9]/20 transition-all duration-300 group">
-                      <Send className="w-5 h-5 text-[#229ED9]/50 group-hover:text-[#229ED9] transition-colors" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right: Content Text */}
-            <div className="w-full flex-1 space-y-8 text-center lg:text-left">
-              <div className="space-y-3">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tighter text-gray-300 text-shadow-md" data-aos="fade-up" data-aos-delay="600">
-                  Hello, I'm <span className="text-accent">Sophal VAUNG</span>,
-                  <br />
-                  <span className="text-white/40">Software Developer</span>
-                  <br />
-                  Based in <span className="text-gray-300">Phnom Penh.</span>
-                </h1>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-12" data-aos="fade-up" data-aos-delay="800">
-                <div className="flex items-baseline gap-4">
-                  <span className="text-3xl md:text-4xl font-semibold text-accent animate-pulse-glow text-shadow-md">4th Year</span>
-                  <span className="text-gray-500 font-medium tracking-widest uppercase text-[10px] sm:text-xs text-shadow-sm">University Student</span>
-                </div>
-
-                <a
-                  href="https://drive.google.com/file/d/1LIXG-Eobjfi479vtVgMC-IKl8Zyjpfoo/view?usp=drive_link"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative px-6 py-3 bg-white/5 border border-white/10 rounded-lg hover:border-accent/50 transition-all duration-300 overflow-hidden"
-                >
-                  <div className="absolute inset-0 bg-accent/70 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500"></div>
-                  <div className="relative flex items-center gap-3">
-                    <FileText className="w-5 h-5 text-white group-hover:text-background transition-colors" />
-                    <span className="text-sm font-semibold tracking-widest group-hover:text-background transition-colors uppercase">DOWNLOAD CV</span>
-                  </div>
-                </a>
-              </div>
-
-              {/* Mobile Marquees */}
-              <div className="w-full block lg:hidden overflow-hidden py-4" data-aos="fade-up" data-aos-delay="1000">
-                <div className="flex flex-col gap-6">
-                  {/* Tech Stack */}
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Technologies & Tools</span>
-                    <div className="flex relative w-full max-w-lg mask-gradient-x">
-                      <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
-                        {TECH_STACK.map((tech, index) => (
-                          <div key={index} className="flex items-center justify-center w-12 h-12">
-                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
-                          </div>
-                        ))}
-                      </div>
-                      <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
-                        {TECH_STACK.map((tech, index) => (
-                          <div key={index} className="flex items-center justify-center w-12 h-12">
-                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Experience */}
-                  <div className="flex flex-col gap-2">
-                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Experience & Education</span>
-                    <div className="flex relative w-full max-w-lg mask-gradient-x">
-                      <div className="flex animate-marquee-reverse whitespace-nowrap gap-12 pr-12">
-                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
-                          <div key={`${i}-${index}`} className="flex items-center justify-center w-12 h-12">
-                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain transition-all duration-300 hover:scale-110" />
-                          </div>
-                        )))}
-                      </div>
-                      <div className="absolute top-0 flex animate-marquee2-reverse whitespace-nowrap gap-12 pr-12">
-                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
-                          <div key={`${i}-dup-${index}`} className="flex items-center justify-center w-12 h-12">
-                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain transition-all duration-300 hover:scale-110" />
-                          </div>
-                        )))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Desktop Marquees */}
-              <div className="w-full hidden lg:block overflow-hidden py-10" data-aos="fade-up" data-aos-delay="1000">
-                <div className="flex flex-col gap-10">
-                  {/* Tech Stack */}
-                  <div className="flex flex-col gap-3">
-                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Technologies & Tools</span>
-                    <div className="flex relative w-full max-w-lg mask-gradient-x">
-                      <div className="flex animate-marquee whitespace-nowrap gap-12 pr-12">
-                        {TECH_STACK.map((tech, index) => (
-                          <div key={index} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
-                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
-                          </div>
-                        ))}
-                      </div>
-                      <div className="absolute top-0 flex animate-marquee2 whitespace-nowrap gap-12 pr-12">
-                        {TECH_STACK.map((tech, index) => (
-                          <div key={index} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
-                            <img src={tech.icon} alt={tech.language} className="w-full h-full object-contain" />
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Experience */}
-                  <div className="flex flex-col gap-3">
-                    <span className="text-[10px] font-black tracking-[0.3em] text-accent/50 uppercase ml-2">Experience & Education</span>
-                    <div className="flex relative w-full max-w-lg mask-gradient-x">
-                      <div className="flex animate-marquee-reverse whitespace-nowrap gap-12 pr-12">
-                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
-                          <div key={`${i}-${index}`} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
-                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain" />
-                          </div>
-                        )))}
-                      </div>
-                      <div className="absolute top-0 flex animate-marquee2-reverse whitespace-nowrap gap-12 pr-12">
-                        {[...Array(7)].map((_, i) => COMPANIES.map((company, index) => (
-                          <div key={`${i}-dup-${index}`} className="flex items-center justify-center w-12 h-12 hover:scale-110 transition-all duration-300">
-                            <img src={company.icon} alt={company.name} className="w-full h-full object-contain" />
-                          </div>
-                        )))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+          </h1>
         </div>
 
-        {/* Background Decorative Text */}
-        <div className="fixed bottom-0 right-0 p-8 opacity-[0.02] pointer-events-none select-none z-0">
-          <h2 className="text-[15rem] font-black leading-none tracking-tighter">SOPHAL</h2>
+        <div className="flex-1 relative">
+
+          {/* Desktop: left / right panels pinned to bottom */}
+          <div className="hidden lg:flex items-end justify-between px-10 xl:px-20 pb-16 absolute inset-0">
+
+            {/* Left: Skills + Social */}
+            <div className="space-y-4" data-aos="fade-right" data-aos-delay="400">
+              {SKILLS.map((skill, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="text-accent font-black text-xl leading-none">=&gt;</span>
+                  <span className="text-white font-semibold text-lg">{skill}</span>
+                </div>
+              ))}
+
+              <div className="flex items-center gap-5 pt-5">
+                <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer"
+                   className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
+                  <Send className="w-5 h-5" />
+                </a>
+                <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer"
+                   className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
+                  <Github className="w-5 h-5" />
+                </a>
+                <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer"
+                   className="text-white/70 hover:text-accent transition-all duration-300 hover:scale-110">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Right: Description + CTA */}
+            <div className="text-right max-w-[280px]" data-aos="fade-left" data-aos-delay="400">
+              <p className="text-white/80 text-xs font-bold uppercase tracking-widest leading-[2.2]">
+                FULL STACK DEVELOPER WITH 4+ YEARS OF EXPERIENCE IN DEVELOPING ROBUST WEB APPLICATIONS FROM FRONT-END TO BACK-END
+              </p>
+              <div className="flex items-center justify-end gap-3 mt-8">
+                <button
+                  className="w-12 h-12 rounded-full border border-accent/60 bg-accent/10 backdrop-blur-sm flex items-center justify-center hover:bg-accent transition-all duration-300 group cursor-pointer"
+                  onClick={scrollToContact}
+                >
+                  <Zap className="w-5 h-5 text-accent group-hover:text-black transition-colors" />
+                </button>
+                <a
+                  href="#Contact"
+                  onClick={scrollToContact}
+                  className="bg-accent text-black font-black text-sm px-8 py-4 rounded-full uppercase hover:scale-105 hover:shadow-[0_0_30px_rgba(173,255,47,0.5)] transition-all duration-300"
+                >
+                  HIRE ME
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop spacer */}
+          <div className="hidden lg:block min-h-[65vh]" />
+
+          {/* Mobile */}
+          <div className="lg:hidden px-6 pb-14 space-y-6 mt-[40vh]">
+            <div className="space-y-3">
+              {SKILLS.map((skill, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="text-accent font-black text-lg leading-none">=&gt;</span>
+                  <span className="text-white font-semibold">{skill}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-5">
+              <a href="https://t.me/pol_g0o" target="_blank" rel="noopener noreferrer"
+                 className="text-white/70 hover:text-accent transition-colors">
+                <Send className="w-5 h-5" />
+              </a>
+              <a href="https://github.com/vaungsophal" target="_blank" rel="noopener noreferrer"
+                 className="text-white/70 hover:text-accent transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://www.linkedin.com/in/sophal-vaung/" target="_blank" rel="noopener noreferrer"
+                 className="text-white/70 hover:text-accent transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+
+            <p className="text-white/80 text-xs font-bold uppercase tracking-widest leading-[2.2]">
+              FULL STACK DEVELOPER WITH 4+ YEARS OF EXPERIENCE IN DEVELOPING ROBUST WEB APPLICATIONS FROM FRONT-END TO BACK-END
+            </p>
+
+            <div className="flex items-center gap-3">
+              <button
+                onClick={scrollToContact}
+                className="w-12 h-12 rounded-full border border-accent/60 bg-accent/10 backdrop-blur-sm flex items-center justify-center"
+              >
+                <Zap className="w-5 h-5 text-accent" />
+              </button>
+              <a
+                href="#Contact"
+                onClick={scrollToContact}
+                className="bg-accent text-black font-black text-sm px-8 py-4 rounded-full uppercase hover:scale-105 transition-all"
+              >
+                HIRE ME
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default memo(Home);
+export default memo(Home)

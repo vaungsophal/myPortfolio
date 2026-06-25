@@ -54,7 +54,7 @@ const ContactPage = () => {
         icon: 'success',
         background: '#161616',
         color: '#ffffff',
-        confirmButtonColor: '#3b82f6',
+        confirmButtonColor: '#ADFF2F',
         timer: 2000
       });
 
@@ -66,7 +66,7 @@ const ContactPage = () => {
         icon: 'error',
         background: '#161616',
         color: '#ffffff',
-        confirmButtonColor: '#3b82f6'
+        confirmButtonColor: '#ADFF2F'
       });
     } finally {
       setIsSubmitting(false);

@@ -4,13 +4,15 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				accent: '#3b82f6',
-				background: '#0c0c0c',
-				card: '#161616',
+				accent: '#ADFF2F',
+				secondary: '#8B5CF6',
+				background: '#050505',
+				card: '#0f0f0f',
 				grayText: '#888888',
 			},
 			fontFamily: {
-				sans: ['Outfit', 'sans-serif'],
+				sans: ['"Google Sans"', 'Outfit', 'sans-serif'],
+				pixel: ['"Press Start 2P"', 'cursive'],
 			},
 			backdropBlur: {
 				sm: '4px',
