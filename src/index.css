@@ -117,6 +117,18 @@ body {
 .animate-marquee { animation: marquee 25s linear infinite; }
 .animate-marquee2 { animation: marquee2 25s linear infinite; }
 
+@keyframes marquee-logos {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-logos {
+  animation: marquee-logos 18s linear infinite;
+  animation-play-state: running !important;
+}
+.animate-logos:hover {
+  animation-play-state: running !important;
+}
+
 @keyframes marquee-reverse {
 	0% { transform: translateX(0%); }
 	100% { transform: translateX(100%); }

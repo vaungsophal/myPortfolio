@@ -69,19 +69,20 @@ const Home = () => {
             width: '100%',
             height: 'auto',
             display: 'block',
-            opacity: 0.6,
+            opacity: 0.92,
           }}
         />
+
       </div>
 
       {/* ── UI content (topmost layer) ── */}
       <div className={`relative z-30 min-h-screen flex flex-col transition-opacity duration-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
 
         {/* Giant Pixel Name */}
-        <div className="text-center pt-20 md:pt-24 pb-0 overflow-hidden px-2">
+        <div className="text-center pt-32 md:pt-36 pb-0 overflow-hidden px-2">
           <h1
             className="font-pixel text-white uppercase"
-            style={{ fontSize: 'clamp(0.9rem, 3vw, 3.8rem)', lineHeight: '1.5', fontWeight: 400 }}
+            style={{ fontSize: 'clamp(1.1rem, 3.8vw, 4.6rem)', lineHeight: '1.5', fontWeight: 400 }}
             data-aos="fade-down"
             data-aos-duration="1000"
           >
@@ -146,7 +147,19 @@ const Home = () => {
           <div className="hidden lg:block min-h-[65vh]" />
 
           {/* Mobile */}
-          <div className="lg:hidden px-6 pb-14 space-y-6 mt-[40vh]">
+          <div className="lg:hidden px-6 pb-14 space-y-6 mt-[16vh]">
+
+            {/* Company logos strip — unstoppable infinite scroll */}
+            <div className="overflow-hidden py-2 border-y border-white/10 -mx-6 px-0 pointer-events-none select-none">
+              <div className="flex animate-logos" style={{ width: 'max-content' }}>
+                {[...Array(2)].map((_, clone) =>
+                  ['atc','camnexa','screenwise','sps'].map((name, i) => (
+                    <img key={`${clone}-${i}`} src={`/experiences/${name}.png`} alt={name}
+                      className="h-7 w-auto object-contain opacity-80 mx-6 flex-shrink-0" />
+                  ))
+                )}
+              </div>
+            </div>
             <div className="space-y-3">
               {SKILLS.map((skill, i) => (
                 <div key={i} className="flex items-center gap-3">
