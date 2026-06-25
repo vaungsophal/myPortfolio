@@ -56,7 +56,7 @@ const Home = () => {
           <div className="absolute top-32 xl:top-36 left-0 right-0 text-center overflow-hidden">
             <h1
               className="font-pixel text-white uppercase"
-              style={{ fontSize: 'clamp(1.3rem, 4vw, 3.4rem)', lineHeight: '1.5', fontWeight: 400, opacity: 0.75 }}
+              style={{ fontSize: 'clamp(2rem, 5.5vw, 5rem)', lineHeight: '1.5', fontWeight: 400, opacity: 0.75 }}
               data-aos="fade-down"
               data-aos-duration="1000"
             >
